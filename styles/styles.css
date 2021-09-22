@@ -10,6 +10,12 @@ body{
     width: 90%;
     margin: auto;
 }
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
 /* HEADER*/
 .indexHeader{
     width: 70%;
@@ -32,7 +38,6 @@ body{
     flex-wrap: wrap;
 }
 .navBar ul{
-    list-style-type: none;
     display: flex;
 } 
 .navBar li{
@@ -43,6 +48,8 @@ body{
     padding: 3px;
     margin-right: 3px;
     cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
 }
 .navBar li:focus, .navBar li:hover{
    color:#E5E5E5;
@@ -62,7 +69,6 @@ body{
     background: #D3573C;
 }
 .btnGoToMain a{
-    text-decoration: none;
     color:#E5E5E5;
     font-size: 18px;
     font-weight: bold;
@@ -90,4 +96,71 @@ body{
     justify-content: flex-end;
     margin: 0 10px 0 0;
     color:#901C1C;
+}
+/* MAIN - PHOTOGRAPHERS */
+#indexPage{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.cardPhotographer{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin:20px 10px 20px 0;
+    width: 30%;
+    height: 355px;
+}
+.linkPhotographer{
+    height: 267px;
+}
+.linkPhotographer img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.linkPhotographer h2{
+    font-size: 36px;
+    line-height: 47px;
+    color:#D3573C;
+    text-decoration: none;
+}
+.location{
+    font-size: 13px;
+    color:#901C1C;
+    line-height: 17px;
+    height: 20px;
+}
+.textDesciption{
+    font-size: 10px;
+    line-height: 13px;
+    height: 19px;
+}
+.price{
+    font-size: 9px;
+    line-height: 12px;
+    color: #757575;
+    height: 19px;
+}
+.hastag{
+    height: 30px;
+}
+.hastag ul{
+ display: flex;
+}
+.hastag li{
+    color:#901C1C;
+    border:0.5px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 11px;
+    padding: 3px;
+    margin-right: 3px;
+    cursor: pointer;
+    font-size: 12px; 
 }
