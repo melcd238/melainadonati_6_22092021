@@ -37,6 +37,15 @@ export default class Header {
     linkGoToMain.setAttribute('href', '#indexMain');
     linkGoToMain.appendChild(document.createTextNode('Passer au contenu'));
 
+    // apparition du bouton "passer au contenu" au scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        btnGoToMain.style.visibility = 'visible';
+      } else {
+        btnGoToMain.style.visibility = 'hidden';
+      }
+    });
+
     logo.appendChild(logoImg);
     btnGoToMain.appendChild(linkGoToMain);
     divHeader.append(logo, btnGoToMain, navBar);
