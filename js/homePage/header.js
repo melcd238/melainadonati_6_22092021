@@ -22,7 +22,7 @@ export default class Header {
     navBar.classList.add('navBar');
     const ulNavBar = document.createElement('ul');
     navBar.appendChild(ulNavBar);
-    const tagsName = ['Portrait', 'Art', 'Fashion', 'Architecture', 'Travel', 'Sport', 'Animals', 'Events'];
+    const tagsName = ['portrait', 'art', 'fashion', 'architecture', 'travel', 'sport', 'animals', 'events'];
     tagsName.forEach((tagName) => {
       const li = document.createElement('li');
       const text = document.createTextNode(`#${tagName}`);

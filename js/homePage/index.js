@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable import/extensions */
 import Header from './header.js';
 
 // selector pour le Header
@@ -11,6 +13,10 @@ fetch('data/data.json')
   .then((data) => {
     const photographersArray = data.photographers;
     const mediaArray = data.media;
+    let tagsArray = photographersArray.map((photographer) => photographer.tags);
+    console.log(tagsArray);
+    tagsArray = [...new Set([].concat(...tagsArray))];
+    console.log(tagsArray);
     console.log(mediaArray);
 
     const sectionPhotographers = document.querySelector('#indexPage');

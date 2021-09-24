@@ -49,7 +49,8 @@ ul{
     margin-right: 3px;
     cursor: pointer;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: bolder;
+    text-transform: capitalize;
 }
 .navBar li:focus, .navBar li:hover{
    color:#E5E5E5;
@@ -83,7 +84,7 @@ ul{
 /* MAIN */
 #indexMain{
     margin-top: 30px;
-    height: 1200px;
+    
 }
 .mainTitle{
     font-weight: normal;
@@ -162,5 +163,6 @@ ul{
     padding: 3px;
     margin-right: 3px;
     cursor: pointer;
-    font-size: 12px; 
+    font-size: 12px;
+    font-weight: bolder; 
 }
