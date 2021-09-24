@@ -14,7 +14,6 @@ fetch('data/data.json')
     const photographersArray = data.photographers;
     const mediaArray = data.media;
     let tagsArray = photographersArray.map((photographer) => photographer.tags);
-    console.log(tagsArray);
     tagsArray = [...new Set([].concat(...tagsArray))];
     console.log(tagsArray);
     console.log(mediaArray);
@@ -31,15 +30,21 @@ fetch('data/data.json')
        <p class="location"><span>${photographer.city}</span>, <span>${photographer.country}</span></p>
       
        <p class="textDesciption" role="text"> ${photographer.tagline}</p>
-       <p class="price">  ${photographer.price}€/jour</p>
-      
-       <div class="hastag">
-           <ul>
-               <li>#portrait</li>
-               <li>#events</li>
-               <li>#animal</li>
-           </ul>
-       </div>`;
+       <p class="price">  ${photographer.price}€/jour</p>`;
+      const divHastag = document.createElement('div');
+      divHastag.setAttribute('class', 'hastag');
+      const ulHastag = document.createElement('ul');
+      ulHastag.setAttribute('class', 'ulHashList');
+      divHastag.appendChild(ulHastag);
+      const tagsPhotographer = photographer.tags;
+      tagsPhotographer.forEach((tag) => {
+        const li = document.createElement('li');
+        const text = document.createTextNode(`#${tag}`);
+        li.appendChild(text);
+        ulHastag.appendChild(li);
+      });
+      card.appendChild(divHastag);
+
       sectionPhotographers.appendChild(card);
     });
   });
