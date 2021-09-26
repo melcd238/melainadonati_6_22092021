@@ -52,10 +52,11 @@ ul{
     font-weight: bolder;
     text-transform: capitalize;
 }
-.navBar li:focus, .navBar li:hover{
+.navBar li:focus, .navBar li:hover, .navBar .active{
    color:#E5E5E5;
    background:#901C1C ;
 }
+
 .btnGoToMain{
     background: #901C1C;
     border:none;
