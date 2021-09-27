@@ -118,10 +118,9 @@ fetch('data/data.json')
       if (!tag.classList.contains('active')) {
         window.location.reload();
       }
-      // Pour chaque card de photographe on teste si l'élément
-      // n'a pas la class du filtre et on cache les éléments qu'on ne veut pas voir
       cards.forEach((card) => {
         if (!card.classList.contains(value)) {
+          // eslint-disable-next-line no-param-reassign
           card.style.display = 'none';
         }
       });
