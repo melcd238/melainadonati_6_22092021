@@ -82,7 +82,37 @@ ul{
     width: 30%;
     display: flex;
 }
-@media screen and (max-width:540px){
+@media screen and (max-width:1200px) {
+    .indexHeader{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .divHeader{
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        margin-top: 30px;
+    }
+    .navbar{
+        width: 100%;
+       
+    }
+    .navBar ul{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .navBar li{
+        margin-bottom: 3px;
+    }
+    .btnGoToMain{
+        left:30%;
+    }
+
+}
+@media screen and (max-width:580px){
     .indexHeader{
         width: 100%;
         display: flex;
@@ -165,6 +195,7 @@ ul{
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    object-fit: cover;
 }
 .linkPhotographer h2{
     font-size: 36px;
@@ -206,12 +237,15 @@ ul{
     font-size: 12px;
     font-weight: bolder; 
 }
-@media screen and (max-width:540px){
+@media screen and (max-width:1120px){
     #indexPage{
         flex-direction: column;
         margin: auto;
         margin-top: 60px;
     }
+}
+@media screen and (max-width:580px){
+ 
     .linkPhotographer h2{
         width: 320px;
     }
