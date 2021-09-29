@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-console.log('test');
 
 // Fetch
 fetch('../data/data.json')
@@ -18,3 +17,13 @@ fetch('../data/data.json')
     console.log(photographe);
     // recuperation du media concerné
   });
+const HeaderPhotographer = document.querySelector('.headerPhotographer');
+const logo = document.createElement('a');
+logo.setAttribute('href', '../index.html');
+logo.setAttribute('aria-label', 'retour à la page accueil');
+logo.classList.add('logoLinkPhotographer');
+const logoImg = document.createElement('img');
+logoImg.setAttribute('src', '../images/logo.svg');
+logoImg.setAttribute('alt', 'Fisheye Home page');
+logo.appendChild(logoImg);
+HeaderPhotographer.appendChild(logo);
