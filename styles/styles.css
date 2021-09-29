@@ -243,12 +243,13 @@ ul{
         margin: auto;
         margin-top: 60px;
     }
-}
-@media screen and (max-width:580px){
- 
     .linkPhotographer h2{
         width: 320px;
     }
+}
+@media screen and (max-width:580px){
+ 
+   
     .location{
         width:200px;
     }
@@ -261,3 +262,4 @@ ul{
         margin-top: -10px;
     }
 }
+/*------------------------------------------PhotographerPage--------------------------------*/
