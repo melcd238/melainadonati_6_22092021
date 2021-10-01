@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 // import Header from './header.js';
+import Photographer from '../class/photographer.js';
 
 // Fetch
 fetch('data/data.json')
@@ -76,36 +77,11 @@ fetch('data/data.json')
     headerContent.createHeader();
 
     // Affichage des Photographes:
-    const sectionPhotographers = document.querySelector('#indexPage');
 
     photographersArray.forEach((photographer) => {
-      const card = document.createElement('div');
-      card.setAttribute('class', 'cardPhotographer');
-      card.innerHTML = `   <a href="pages/photographer.html?id=${photographer.id}" class="linkPhotographer">
-            <img src="images/Portraits/${photographer.portrait}">
-            <h2>${photographer.name}</h2>
-       </a>
-       <p class="location"><span>${photographer.city}</span>, <span>${photographer.country}</span></p>
-      
-       <p class="textDesciption" role="text"> ${photographer.tagline}</p>
-       <p class="price">  ${photographer.price}€/jour</p>`;
-      const divHastag = document.createElement('div');
-      divHastag.setAttribute('class', 'hastag');
-      const ulHastag = document.createElement('ul');
-      ulHastag.setAttribute('class', 'ulHashList');
-      divHastag.appendChild(ulHastag);
-      const tagsPhotographer = photographer.tags;
-      console.log(tagsPhotographer);
-      tagsPhotographer.forEach((tag) => {
-        card.classList.add(`${tag}`);
-        const li = document.createElement('li');
-        const text = document.createTextNode(`#${tag}`);
-        li.appendChild(text);
-        ulHastag.appendChild(li);
-      });
-      card.appendChild(divHastag);
-
-      sectionPhotographers.appendChild(card);
+      const photographersList = new Photographer(photographer);
+      console.log(photographersList);
+      photographersList.displayPhotographersList();
     });
     // filtrer au click sur un # de la nav:
     const liTags = document.querySelectorAll('.filter');
