@@ -43,4 +43,26 @@ export default class Photographer {
   }
 
   // methode pour afficher un photographe sur la page photographer.html
+  displayOnePhotographer() {
+    const presentationPhotographer = document.querySelector('.presentation');
+    presentationPhotographer.innerHTML = ` <div class="information">
+    <h2>${this.name}</h2>
+    <div class="locationText">
+        <p> <span>${this.city}</span>, <span>${this.country}</span></p>
+        <p class="text">${this.tagline}</p>
+    </div>
+    <div class="tags">
+        <ul>
+            <li>#portrait</li>
+            <li>#portrait</li>
+        </ul>
+    </div>
+</div>
+<div class="btnContact">
+    <button>Contactez-moi</button>
+</div>
+<div class="portrait">
+    <img src="../images/Portraits/${this.portrait}">
+</div>`;
+  }
 }
