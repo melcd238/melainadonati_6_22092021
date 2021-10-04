@@ -327,7 +327,7 @@ body{
     padding: 21px 11px;
     border: none;
     margin-top: 40px;
-    margin-left: -300px;
+    margin-left: -250px;
 }
 .btnContact button:hover, .btnContact button:focus{
     background: #D3573C;
@@ -339,6 +339,6 @@ body{
     border-radius: 50%;
     object-fit: cover;
     margin-top: 40px; 
-    margin-right: 40px;
+    margin-right: 50px;
 }
 
