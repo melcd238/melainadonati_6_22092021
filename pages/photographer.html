@@ -15,22 +15,30 @@
     <header class="headerPhotographer" role="banner"></header>
     <main class="mainPhotographer">
         <section class="presentation"></section>
-
         
-
-        <div class="dropdown">
-            <p class="photoSelect" role="input label">Trier par</p>
-            <div class="listWrapper">
-                <button aria-haspopup="listbox" aria-expanded="false" class="dropdownbtn" aria-roledescription="button" id="btnListbox">
-                  Popularité <span class="fas fa-chevron-down sort-arrow"></span>
-                </button>
-                <ul id="list" tabindex="0" role="listbox" class="listBox">
-                  <li id="list1" role="option" tabindex="0">Popularité <span class="fas fa-chevron-up sort-arrow"></span></li>
-                  <li id="list2" role="option" tabindex="0">Date</li>
-                  <li id="list3" role="option" tabindex="0">Titre</li>
-                </ul>
-              </div>
+        <div class="ContainerDropDown">
+            <p class="sortBy"> Trier par </p>
+            <div class="dropdown">
+                <div class="dropdown-btn">
+                  <p>Popularité</p>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-value="popularite" >
+                        Popularité
+                      </div>
+                  <div class="dropdown-item" data-value="date">
+                    Date
+                  </div>
+                  <div class="dropdown-item" data-value="titre">
+                   Titre
+                  </div>
+                </div>
+              </div>   
         </div>
+     
+
+
         
 
         <section class="media"> </section>

@@ -93,58 +93,76 @@ ul{
     margin-top: 40px; 
     margin-right: 50px;
 }
-.dropdown{
+.ContainerDropDown{
     display: flex;
 }
-.photoSelect{
+.sortBy{
    font-size: 18px;
    font-weight: bold;
    line-height: 23px;
    margin-right: 20px;
    margin-top: 30px;
 }
-.dropdownbtn{
-  margin-top: 20px;  
-  background: #911C1C;
-  border-radius: 5px;
-  width: 170px;
-  height: 69px;
-  border: none;
-  font-weight: bold;
-  color:white;
-  font-size: 18px;
-  line-height: 23px;
-  cursor: pointer;
-}
-.fa-chevron-down{
-    margin-left: 26px;
-}
-.listBox{
-    margin-top: 20px;  
-    background: #911C1C;
-    border-radius: 5px;
+.dropdown {
     width: 170px;
-    height: 170px; 
-    padding-top: 20px;
-    padding-left: 20px;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, -1px -8px 10px 1px rgba(0,0,0,0.08); 
-    box-shadow: 0px 10px 13px -7px #000000, -1px -8px 10px 1px rgba(0,0,0,0.08); 
-    display: none;
-}
-.fa-chevron-up{
-    margin-left: 26px;
-}
-#list1, #list2, #list3{
+    user-select: none;
+    position: relative;
+} 
+.dropdown-btn {
+    padding: 15px 8px;
+    background: #911C1C;
+    text-align: center;
+    color: #333;
+    border-bottom: 1px solid transparent;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px; 
+} 
+.dropdown-btn p{
+    display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    text-align: center;
+    user-select: none;
+    pointer-events: none;
     color:white;
     font-size: 18px;
-    font-weight: bold;
     line-height: 23px;
-    margin-bottom: 29px;
-    cursor:pointer;
+    font-weight: bold;
+} 
+.dropdown-btn i{
+    color: white;
+    line-height: 1.5;
+    float: right;
+    pointer-events: none;
+}    
+.dropdown-btn.active {
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-bottom: 1px solid white;
 }
-.hidden{
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #911C1C;
+    border-radius: 5px;
+    font-weight: 500;
+    color: white;
+    width: 100%;
+    overflow: hidden;
     display: none;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, -1px -8px 10px 1px rgba(0,0,0,0.08); 
+    box-shadow: 0px 10px 13px -7px #000000, -1px -8px 10px 1px rgba(0,0,0,0.08); 
 }
-.show {
+.dropdown-item {
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+} 
+.dropdown-content.active {
     display: block;
-}
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+  }   

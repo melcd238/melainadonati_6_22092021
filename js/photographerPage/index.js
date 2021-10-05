@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
 import Photographer from '../class/photographer.js';
@@ -22,7 +23,10 @@ fetch('../data/data.json')
     // Affichage du photographe;
     photographe = new Photographer(photographe);
     photographe.displayOnePhotographer();
+
+    // Affichage des médias:
   });
+
 // Création du Header de la page
 const HeaderPhotographer = document.querySelector('.headerPhotographer');
 const logo = document.createElement('a');
@@ -35,14 +39,35 @@ logoImg.setAttribute('alt', 'Fisheye Home page');
 logo.appendChild(logoImg);
 HeaderPhotographer.appendChild(logo);
 
-// listBox
-const btnListBox = document.querySelector('#btnListbox');
-const list = document.querySelector('.listBox');
-btnListBox.addEventListener('click', () => {
-  btnListBox.classList.toggle('hidden');
-  list.classList.toggle('show');
+// Affichage listBox
+const dropdown = document.querySelector('.dropdown');
+const dropdown_btn = document.querySelector('.dropdown-btn');
+const dropdown_content = document.querySelector('.dropdown-content');
+const dropdown_item = document.querySelectorAll('.dropdown-item');
+const arrow = document.querySelector('.fas');
+
+document.addEventListener('click', (e) => {
+  if (e.target === dropdown_btn) {
+    return;
+  // eslint-disable-next-line no-else-return
+  } else if (dropdown_content.classList.contains('active')) {
+    dropdown_content.classList.remove('active');
+    dropdown_btn.classList.remove('active');
+    dropdown_btn.classList.remove('active');
+    arrow.classList.remove('fa-chevron-up');
+  }
 });
-list.addEventListener('click', () => {
-  btnListBox.classList.toggle('hidden');
-  list.classList.toggle('show');
+
+dropdown.addEventListener('click', function () {
+  this.classList.toggle('active');
+  dropdown_content.classList.toggle('active');
+  dropdown_btn.classList.toggle('active');
+  arrow.classList.toggle('fa-chevron-up');
 });
+
+for (let i = 0; i < dropdown_item.length; i++) {
+  dropdown_item[i].addEventListener('click', function () {
+    dropdown_btn.getElementsByTagName('p')[0].textContent = this.textContent;
+    console.log(this.dataset.value);
+  });
+}
