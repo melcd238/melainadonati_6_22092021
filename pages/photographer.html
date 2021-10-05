@@ -4,16 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/photographer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet"> 
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/7d44ab22cf.js" crossorigin="anonymous"></script>
+    <title>photographer</title>
 </head>
 <body>
     <header class="headerPhotographer" role="banner"></header>
     <main class="mainPhotographer">
         <section class="presentation"></section>
+
+        
+
+        <div class="dropdown">
+            <p class="photoSelect" role="input label">Trier par</p>
+            <div class="listWrapper">
+                <button aria-haspopup="listbox" aria-expanded="false" class="dropdownbtn" aria-roledescription="button" id="btnListbox">
+                  Popularité <span class="fas fa-chevron-down sort-arrow"></span>
+                </button>
+                <ul id="list" tabindex="0" role="listbox" class="listBox">
+                  <li id="list1" role="option" tabindex="0">Popularité <span class="fas fa-chevron-up sort-arrow"></span></li>
+                  <li id="list2" role="option" tabindex="0">Date</li>
+                  <li id="list3" role="option" tabindex="0">Titre</li>
+                </ul>
+              </div>
+        </div>
+        
 
         <section class="media"> </section>
         <div class="modal"></div>

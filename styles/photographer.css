@@ -1,0 +1,150 @@
+/*------------------------------------------PhotographerPage--------------------------------*/
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #FAFAFA;
+    font-family: 'DM Sans', sans-serif;
+    position: relative;
+    width: 90%;
+    margin: auto;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+
+.headerPhotographer{
+    margin-top: 40px;
+}
+.presentation{
+    max-width: 1600px;
+    height: 313px;
+    background: #E5E5E5;
+    border-radius: 5px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.information{
+    margin-top: 40px;
+    margin-left: 50px;
+}
+.information h2{
+    color: #D3573C;
+    font-size: 64px;
+    line-height: 83px;
+}
+.locationText{
+    width: 374px;
+    height: 89px;
+}
+.locationText span{
+    color:#901C1C;
+    font-size: 24px;
+    line-height: 31px;
+}
+.locationText p{
+    margin-bottom: 20px;
+}
+.text{
+    font-size: 18px;
+    line-height: 23px;
+    color:#525252;
+}
+.tags ul{
+    display: flex;
+}
+.tags li{
+    border: 0.5px solid #C4C4C4;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #901C1C;
+    padding: 3px;
+    margin: 3px;
+}
+.btnContact button{
+    background: #911C1C;
+    color:white;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 26px;
+    padding: 21px 11px;
+    border: none;
+    margin-top: 40px;
+    margin-left: -90%;
+}
+.btnContact button:hover, .btnContact button:focus{
+    background: #D3573C;
+    color: black;
+}
+.portrait img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 40px; 
+    margin-right: 50px;
+}
+.dropdown{
+    display: flex;
+}
+.photoSelect{
+   font-size: 18px;
+   font-weight: bold;
+   line-height: 23px;
+   margin-right: 20px;
+   margin-top: 30px;
+}
+.dropdownbtn{
+  margin-top: 20px;  
+  background: #911C1C;
+  border-radius: 5px;
+  width: 170px;
+  height: 69px;
+  border: none;
+  font-weight: bold;
+  color:white;
+  font-size: 18px;
+  line-height: 23px;
+  cursor: pointer;
+}
+.fa-chevron-down{
+    margin-left: 26px;
+}
+.listBox{
+    margin-top: 20px;  
+    background: #911C1C;
+    border-radius: 5px;
+    width: 170px;
+    height: 170px; 
+    padding-top: 20px;
+    padding-left: 20px;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, -1px -8px 10px 1px rgba(0,0,0,0.08); 
+    box-shadow: 0px 10px 13px -7px #000000, -1px -8px 10px 1px rgba(0,0,0,0.08); 
+    display: none;
+}
+.fa-chevron-up{
+    margin-left: 26px;
+}
+#list1, #list2, #list3{
+    color:white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 23px;
+    margin-bottom: 29px;
+    cursor:pointer;
+}
+.hidden{
+    display: none;
+}
+.show {
+    display: block;
+}

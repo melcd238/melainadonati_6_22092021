@@ -34,3 +34,15 @@ logoImg.setAttribute('src', '../images/logo.svg');
 logoImg.setAttribute('alt', 'Fisheye Home page');
 logo.appendChild(logoImg);
 HeaderPhotographer.appendChild(logo);
+
+// listBox
+const btnListBox = document.querySelector('#btnListbox');
+const list = document.querySelector('.listBox');
+btnListBox.addEventListener('click', () => {
+  btnListBox.classList.toggle('hidden');
+  list.classList.toggle('show');
+});
+list.addEventListener('click', () => {
+  btnListBox.classList.toggle('hidden');
+  list.classList.toggle('show');
+});
