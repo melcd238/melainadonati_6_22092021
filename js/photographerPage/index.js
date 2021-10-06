@@ -19,7 +19,12 @@ fetch('../data/data.json')
     });
     console.log(photographe);
     // recuperation du media concerné
-
+    const medias = mediaArray.filter((media) => {
+      const mediaIDString = media.photographerId.toString();
+      console.log(mediaIDString);
+      return mediaIDString == photographe.id;
+    });
+    console.log(medias);
     // Affichage du photographe;
     photographe = new Photographer(photographe);
     photographe.displayOnePhotographer();
@@ -48,7 +53,7 @@ const arrow = document.querySelector('.fas');
 
 document.addEventListener('click', (e) => {
   if (e.target === dropdown_btn) {
-    return;
+
   // eslint-disable-next-line no-else-return
   } else if (dropdown_content.classList.contains('active')) {
     dropdown_content.classList.remove('active');
