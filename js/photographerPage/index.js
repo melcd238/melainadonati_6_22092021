@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable default-case */
 /* eslint-disable camelcase */
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
@@ -11,7 +13,6 @@ fetch('../data/data.json')
     const photographId = searchParams.get('id');
     const photographersArray = data.photographers;
     const mediaArray = data.media;
-    console.log(mediaArray);
     // recuperation du photographe concerné
     let photographe = photographersArray.find((photograph) => {
       const photoIdString = photograph.id.toString();
@@ -20,9 +21,8 @@ fetch('../data/data.json')
     console.log(photographe);
     // recuperation du media concerné
     const medias = mediaArray.filter((media) => {
-      const mediaIDString = media.photographerId.toString();
-      console.log(mediaIDString);
-      return mediaIDString == photographe.id;
+      const mediaIDString = media.photographerId;
+      return mediaIDString === photographe.id;
     });
     console.log(medias);
     // Affichage du photographe;
@@ -30,6 +30,85 @@ fetch('../data/data.json')
     photographe.displayOnePhotographer();
 
     // Affichage des médias:
+    const MEDIA_TYPE = {
+      IMAGE: 'image',
+      VIDEO: 'video',
+    };
+    class Media {
+      constructor(data) {
+        this.title = data.title;
+        this.date = data.date;
+        this.id = data.id;
+        this.likes = data.likes;
+        this.price = data.price;
+        this.tags = data.tags;
+        this.photographerId = data.photographerId;
+      }
+    }
+    class Image extends Media {
+      constructor(data) {
+        super(data);
+        this.image = data.image;
+      }
+
+      displayMediaImageList() {
+        const sectionMedia = document.querySelector('.media');
+        const mediaImageCard = document.createElement('div');
+        mediaImageCard.setAttribute('class', 'mediaView');
+        mediaImageCard.setAttribute('id', `${this.id}`);
+        mediaImageCard.innerHTML = ` <div id="openLightbox" class="imageMedia">
+        <img src="../images/${this.photographerId}/${this.image}" alt="">
+    </div>
+    <div class="titleLikes">
+        <h3> ${this.title} </h3>
+        <p class="likes"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
+    </div> `;
+        sectionMedia.appendChild(mediaImageCard);
+      }
+    }
+    class Video extends Media {
+      constructor(data) {
+        super(data);
+        this.video = data.video;
+      }
+
+      displayMediaVideoList() {
+        const sectionMedia = document.querySelector('.media');
+        const mediaVideoCard = document.createElement('div');
+        mediaVideoCard.setAttribute('class', 'mediaView');
+        mediaVideoCard.setAttribute('id', `${this.id}`);
+        mediaVideoCard.innerHTML = `<div id="openLightbox" class="imageMedia">
+          <video controls>
+          <source src="../images/${this.photographerId}/${this.video}" type="video/mp4" alt="">
+      </video> </div>
+      <div class="titleLikes">
+          <h3> ${this.title} </h3>
+          <p class="likes"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
+      </div> `;
+        sectionMedia.appendChild(mediaVideoCard);
+      }
+    }
+    class MediaFactory {
+      static getMedia(type, data) {
+        switch (type) {
+          case MEDIA_TYPE.IMAGE:
+            return new Image(data);
+          case MEDIA_TYPE.VIDEO:
+            return new Video(data);
+          default:
+            throw new Error('Wrong media chosen');
+        }
+      }
+    }
+    medias.forEach((media) => {
+      if (media.image) {
+        const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
+        mediaImageList.displayMediaImageList(data);
+      } else if (media.video) {
+        const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
+        mediaVideoList.displayMediaVideoList(data);
+      }
+    });
   });
 
 // Création du Header de la page

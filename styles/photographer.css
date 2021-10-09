@@ -167,4 +167,46 @@ ul{
     display: block;
     border-top-left-radius: unset;
     border-top-right-radius: unset;
-  }   
+}
+.media{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.mediaView{
+    margin-bottom: 40px;
+}
+.imageMedia{
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    margin-right: 20px;
+} 
+.imageMedia img{
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.imageMedia video{
+    width: 350px;
+    height: 300px;
+    border-radius: 5px; 
+}
+.titleLikes{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.titleLikes h3{
+    color: #901C1C;
+    font-size: 24px;
+    line-height: 31px;
+} 
+.titleLikes p{
+    font-size: 24px;
+    line-height: 31px;
+    color: #901C1C;
+} 
