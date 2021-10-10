@@ -66,6 +66,8 @@ export default class Photographer {
     const tagsPhotographer = this.tags;
     tagsPhotographer.forEach((tag) => {
       const li = document.createElement('li');
+      li.setAttribute('class', 'filterMedia');
+      li.setAttribute('data-filter', `${tag}`);
       const text = document.createTextNode(`#${tag}`);
       li.appendChild(text);
       ultags.appendChild(li);

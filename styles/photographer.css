@@ -68,7 +68,12 @@ ul{
     color: #901C1C;
     padding: 3px;
     margin: 3px;
+    cursor: pointer;
 }
+.tags li:focus, .tags li:hover, .tags .active{
+    color:#E5E5E5;
+    background:#901C1C ;
+ }
 .btnContact button{
     background: #911C1C;
     color:white;

@@ -58,6 +58,7 @@ fetch('../data/data.json')
         const sectionMedia = document.querySelector('.media');
         const mediaImageCard = document.createElement('div');
         mediaImageCard.setAttribute('class', 'mediaView');
+        mediaImageCard.classList.add(`${this.tags}`);
         mediaImageCard.setAttribute('id', `${this.id}`);
         mediaImageCard.innerHTML = ` <div id="openLightbox" class="imageMedia">
         <img src="../images/${this.photographerId}/${this.image}" alt="">
@@ -79,6 +80,7 @@ fetch('../data/data.json')
         const sectionMedia = document.querySelector('.media');
         const mediaVideoCard = document.createElement('div');
         mediaVideoCard.setAttribute('class', 'mediaView');
+        mediaVideoCard.classList.add(`${this.tags}`);
         mediaVideoCard.setAttribute('id', `${this.id}`);
         mediaVideoCard.innerHTML = `<div id="openLightbox" class="imageMedia">
           <video controls>
@@ -122,6 +124,24 @@ fetch('../data/data.json')
     const divTotalLikesPrice = document.querySelector('.priceLikes');
     divTotalLikesPrice.innerHTML = ` <p class="totalLikes"> ${totalLikes} <img src="../images/totalLikes.svg" alt=""> </p>
     <p class="priceDay"> ${photographe.price}€/jour</p>`;
+
+    // filtrage par tags:
+    const liPhotographerTags = document.querySelectorAll('.filterMedia');
+    const cardsMedia = document.querySelectorAll('.mediaView');
+    liPhotographerTags.forEach((tag) => tag.addEventListener('click', () => {
+      const value = tag.dataset.filter;
+      console.log(value);
+      tag.classList.toggle('active');
+      if (!tag.classList.contains('active')) {
+        window.location.reload();
+      }
+      cardsMedia.forEach((cardMedia) => {
+        if (!cardMedia.classList.contains(value)) {
+          // eslint-disable-next-line no-param-reassign
+          cardMedia.style.display = 'none';
+        }
+      });
+    }));
   });
 
 // Création du Header de la page
