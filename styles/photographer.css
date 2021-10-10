@@ -198,6 +198,8 @@ ul{
 .titleLikes{
     display: flex;
     justify-content: space-between;
+    width: 350px;
+    padding-top: 10px;
     
 }
 .titleLikes h3{
@@ -210,3 +212,22 @@ ul{
     line-height: 31px;
     color: #901C1C;
 } 
+.priceLikes{
+    background: #DB8876;
+    width: 376px;
+    height: 89px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    z-index: 400;
+    right: 20px;
+    bottom: -5px;
+}
+.totalLikes, .priceDay{
+   font-size: 24px;
+   line-height: 31px;
+   font-weight: 500;
+   color: #000000;
+}

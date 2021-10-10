@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable max-classes-per-file */
 /* eslint-disable default-case */
 /* eslint-disable camelcase */
@@ -13,6 +14,8 @@ fetch('../data/data.json')
     const photographId = searchParams.get('id');
     const photographersArray = data.photographers;
     const mediaArray = data.media;
+    const likesArray = [];
+
     // recuperation du photographe concerné
     let photographe = photographersArray.find((photograph) => {
       const photoIdString = photograph.id.toString();
@@ -89,6 +92,7 @@ fetch('../data/data.json')
       }
     }
     class MediaFactory {
+      // eslint-disable-next-line no-shadow
       static getMedia(type, data) {
         switch (type) {
           case MEDIA_TYPE.IMAGE:
@@ -108,7 +112,16 @@ fetch('../data/data.json')
         const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
         mediaVideoList.displayMediaVideoList(data);
       }
+      // on recuppère les likes de tous les média dans un tableau
+      likesArray.push(media.likes);
     });
+    // eslint-disable-next-line max-len
+    // On additionne les valeurs contenues dans le tableau pour l'affichage du total de likes et du prix par jour :
+    const reducer = (accumulator, curr) => accumulator + curr;
+    const totalLikes = likesArray.reduce(reducer);
+    const divTotalLikesPrice = document.querySelector('.priceLikes');
+    divTotalLikesPrice.innerHTML = ` <p class="totalLikes"> ${totalLikes} <img src="../images/totalLikes.svg" alt=""> </p>
+    <p class="priceDay"> ${photographe.price}€/jour</p>`;
   });
 
 // Création du Header de la page

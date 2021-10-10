@@ -20,7 +20,7 @@ export default class Photographer {
           <img src="../images/Portraits/${this.portrait}">
           <h2>${this.name}</h2>
      </a>
-     <p class="location"><span>${this.city}</span>, <span>${this.country}</span></p>
+     <p class="location"><span>${this.city}</span>,<span>${this.country}</span></p>
     
      <p class="textDesciption" role="text"> ${this.tagline}</p>
      <p class="price">  ${this.price}€/jour</p>`;
@@ -48,7 +48,7 @@ export default class Photographer {
     presentationPhotographer.innerHTML = `<div class="information">
     <h2>${this.name}</h2>
     <div class="locationText">
-        <p> <span>${this.city}</span>, <span>${this.country}</span></p>
+        <p> <span>${this.city},</span> <span>${this.country}</span></p>
         <p class="text">${this.tagline}</p>
     </div>
     <div class="tags">
