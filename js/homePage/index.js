@@ -91,13 +91,14 @@ fetch('data/data.json')
       const value = tag.dataset.filter;
       console.log(value);
       tag.classList.toggle('active');
-      if (!tag.classList.contains('active')) {
-        window.location.reload();
-      }
       cards.forEach((card) => {
         if (!card.classList.contains(value)) {
           // eslint-disable-next-line no-param-reassign
           card.style.display = 'none';
+        }
+        if (!tag.classList.contains('active')) {
+          // eslint-disable-next-line no-param-reassign
+          card.style.display = 'block';
         }
       });
     }));

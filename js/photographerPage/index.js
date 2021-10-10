@@ -28,6 +28,14 @@ fetch('../data/data.json')
       return mediaIDString === photographe.id;
     });
     console.log(medias);
+    // Affichage par popularité des media :
+    const sortByLikes = (map, compareFn) => (a, b) => -compareFn(map(a), map(b));
+    const byLikesValue = (a, b) => a - b;
+    const toLikes = media => media.likes;
+    const byLikes = sortByLikes(toLikes, byLikesValue);
+    const mediasByLikes = [...medias].sort(byLikes);
+    console.log(mediasByLikes);
+
     // Affichage du photographe;
     photographe = new Photographer(photographe);
     photographe.displayOnePhotographer();
@@ -106,7 +114,7 @@ fetch('../data/data.json')
         }
       }
     }
-    medias.forEach((media) => {
+    mediasByLikes.forEach((media) => {
       if (media.image) {
         const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
         mediaImageList.displayMediaImageList(data);
@@ -132,13 +140,14 @@ fetch('../data/data.json')
       const value = tag.dataset.filter;
       console.log(value);
       tag.classList.toggle('active');
-      if (!tag.classList.contains('active')) {
-        window.location.reload();
-      }
       cardsMedia.forEach((cardMedia) => {
         if (!cardMedia.classList.contains(value)) {
           // eslint-disable-next-line no-param-reassign
           cardMedia.style.display = 'none';
+        }
+        if (!tag.classList.contains('active')) {
+          // eslint-disable-next-line no-param-reassign
+          cardMedia.style.display = 'block';
         }
       });
     }));
