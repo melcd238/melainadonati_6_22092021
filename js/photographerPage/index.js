@@ -31,10 +31,24 @@ fetch('../data/data.json')
     // Affichage par popularité des media :
     const sortByLikes = (map, compareFn) => (a, b) => -compareFn(map(a), map(b));
     const byLikesValue = (a, b) => a - b;
-    const toLikes = media => media.likes;
+    const toLikes = (media) => media.likes;
     const byLikes = sortByLikes(toLikes, byLikesValue);
     const mediasByLikes = [...medias].sort(byLikes);
     console.log(mediasByLikes);
+    // Affichage par date :
+    const sortByDate = (map, compareFn) => (a, b) => -compareFn(map(a), map(b));
+    const byDateValue = (a, b) => a - b;
+    const toDate = (media) => new Date(media.date).getTime();
+    const byDate = sortByDate(toDate, byDateValue);
+    const mediaByDate = [...medias].sort(byDate);
+    console.log(mediaByDate);
+    // Affichage par titre :
+    const mediaByTitre = medias.sort((a, b) => {
+      if (a.title < b.title) return -1;
+      if (a.title > b.title) return 1;
+      return 0;
+    });
+    console.log(mediaByTitre);
 
     // Affichage du photographe;
     photographe = new Photographer(photographe);
@@ -184,6 +198,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// eslint-disable-next-line func-names
 dropdown.addEventListener('click', function () {
   this.classList.toggle('active');
   dropdown_content.classList.toggle('active');
@@ -192,6 +207,7 @@ dropdown.addEventListener('click', function () {
 });
 
 for (let i = 0; i < dropdown_item.length; i++) {
+  // eslint-disable-next-line func-names
   dropdown_item[i].addEventListener('click', function () {
     dropdown_btn.getElementsByTagName('p')[0].textContent = this.textContent;
     console.log(this.dataset.value);
