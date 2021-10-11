@@ -128,6 +128,22 @@ fetch('../data/data.json')
         }
       }
     }
+    // filtrage :
+    const btnPopularite = document.querySelector('.btnPopularite');
+    const dropDownContent = document.querySelector('.dropDownContent');
+    const liPopularite = document.querySelector('.popularite');
+    const liDate = document.querySelector('.date');
+    const liTitre = document.querySelector('.titre');
+    // AU click sur le btn Pupularité, on fait disparaître de btn et apparaître la listBox.
+    btnPopularite.addEventListener('click', () => {
+      btnPopularite.style.display = 'none';
+      dropDownContent.style.display = 'block';
+    });
+    liPopularite.addEventListener('click', () => {
+      btnPopularite.style.display = 'block';
+      dropDownContent.style.display = 'none';
+    });
+    // L'affichage de la page se fait selon la popularité par défaut:
     mediasByLikes.forEach((media) => {
       if (media.image) {
         const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
@@ -165,39 +181,6 @@ fetch('../data/data.json')
         }
       });
     }));
-    // filtrage :
-    const btnPopularite = document.querySelector('.btnPopularite');
-    const dropDownContent = document.querySelector('.dropDownContent');
-    const liPopularite = document.querySelector('.popularite');
-    const liDate = document.querySelector('.date');
-    const liTitre = document.querySelector('.titre');
-    btnPopularite.addEventListener('click', () => {
-      btnPopularite.style.display = 'none';
-      dropDownContent.style.display = 'block';
-    });
-    liPopularite.addEventListener('click', () => {
-      btnPopularite.style.display = 'block';
-      dropDownContent.style.display = 'none';
-      const value = liPopularite.dataset.filter;
-      console.log(value);
-    });
-    liDate.addEventListener('click', () => {
-      console.log('hello');
-      console.log(mediaByDate);
-      const value = liDate.dataset.filter;
-      console.log(value);
-      mediaByDate.forEach((media) => {
-        if (media.image) {
-          const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
-          mediaImageList.displayMediaImageList(data);
-        } else if (media.video) {
-          const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
-          mediaVideoList.displayMediaVideoList(data);
-        }
-        // on recuppère les likes de tous les média dans un tableau
-        likesArray.push(media.likes);
-      });
-    });
   });
 
 // Création du Header de la page

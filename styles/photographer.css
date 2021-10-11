@@ -126,13 +126,18 @@ ul{
 }
 .dropDownContent{
     display: none;
+    margin-top: 20px;
+    position: relative;
+    
 }
 .dropDownContent ul{
     width: 170px;
     height: 170px;
     background: #901C1C;
-    margin-top: 20px;
     border-radius: 5px;
+    position: absolute;
+    left: 10px;
+    z-index: 400;
 }
 .sortBtn{
     background: #901C1C;
