@@ -165,6 +165,39 @@ fetch('../data/data.json')
         }
       });
     }));
+    // filtrage :
+    const btnPopularite = document.querySelector('.btnPopularite');
+    const dropDownContent = document.querySelector('.dropDownContent');
+    const liPopularite = document.querySelector('.popularite');
+    const liDate = document.querySelector('.date');
+    const liTitre = document.querySelector('.titre');
+    btnPopularite.addEventListener('click', () => {
+      btnPopularite.style.display = 'none';
+      dropDownContent.style.display = 'block';
+    });
+    liPopularite.addEventListener('click', () => {
+      btnPopularite.style.display = 'block';
+      dropDownContent.style.display = 'none';
+      const value = liPopularite.dataset.filter;
+      console.log(value);
+    });
+    liDate.addEventListener('click', () => {
+      console.log('hello');
+      console.log(mediaByDate);
+      const value = liDate.dataset.filter;
+      console.log(value);
+      mediaByDate.forEach((media) => {
+        if (media.image) {
+          const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
+          mediaImageList.displayMediaImageList(data);
+        } else if (media.video) {
+          const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
+          mediaVideoList.displayMediaVideoList(data);
+        }
+        // on recuppère les likes de tous les média dans un tableau
+        likesArray.push(media.likes);
+      });
+    });
   });
 
 // Création du Header de la page
@@ -178,38 +211,3 @@ logoImg.setAttribute('src', '../images/logo.svg');
 logoImg.setAttribute('alt', 'Fisheye Home page');
 logo.appendChild(logoImg);
 HeaderPhotographer.appendChild(logo);
-
-// Affichage listBox
-const dropdown = document.querySelector('.dropdown');
-const dropdown_btn = document.querySelector('.dropdown-btn');
-const dropdown_content = document.querySelector('.dropdown-content');
-const dropdown_item = document.querySelectorAll('.dropdown-item');
-const arrow = document.querySelector('.fas');
-
-document.addEventListener('click', (e) => {
-  if (e.target === dropdown_btn) {
-
-  // eslint-disable-next-line no-else-return
-  } else if (dropdown_content.classList.contains('active')) {
-    dropdown_content.classList.remove('active');
-    dropdown_btn.classList.remove('active');
-    dropdown_btn.classList.remove('active');
-    arrow.classList.remove('fa-chevron-up');
-  }
-});
-
-// eslint-disable-next-line func-names
-dropdown.addEventListener('click', function () {
-  this.classList.toggle('active');
-  dropdown_content.classList.toggle('active');
-  dropdown_btn.classList.toggle('active');
-  arrow.classList.toggle('fa-chevron-up');
-});
-
-for (let i = 0; i < dropdown_item.length; i++) {
-  // eslint-disable-next-line func-names
-  dropdown_item[i].addEventListener('click', function () {
-    dropdown_btn.getElementsByTagName('p')[0].textContent = this.textContent;
-    console.log(this.dataset.value);
-  });
-}
