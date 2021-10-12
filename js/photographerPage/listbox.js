@@ -38,6 +38,8 @@ function createListBox() {
     options.forEach((option) => option.removeAttribute('aria-selected', 'false'));
     selectedOption.classList.add('selected');
     selectedOption.setAttribute('aria-selected', 'true');
+    const evt = new Event('selectedChanged', (e), { bubbles: true, cancelable: false });
+    document.dispatchEvent(evt);
   });
 }
 
