@@ -6,7 +6,7 @@
 /* eslint-disable no-console */
 import Photographer from '../class/photographer.js';
 import { createListBox } from './listbox.js';
-import {createHeaderPhotographerPage} from './headerPhotographerPage.js';
+import { createHeaderPhotographerPage } from './headerPhotographerPage.js';
 
 // Fetch
 fetch('../data/data.json')
