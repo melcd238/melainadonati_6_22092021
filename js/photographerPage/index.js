@@ -131,26 +131,33 @@ fetch('../data/data.json')
       }
     }
     // filtrage :
+    // listbox
+    createListBox();
+    const optionPopularite = document.querySelector('#listbox1-1');
+    const optionDate = document.querySelector('#listbox1-2');
+    const optionTitre = document.querySelector('#listbox1-3');
 
-    // L'affichage de la page se fait selon la popularité par défaut:
-    mediasByLikes.forEach((media) => {
-      if (media.image) {
-        const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
-        mediaImageList.displayMediaImageList(data);
-      } else if (media.video) {
-        const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
-        mediaVideoList.displayMediaVideoList(data);
-      }
-      // on recuppère les likes de tous les média dans un tableau
-      likesArray.push(media.likes);
-    });
-    // eslint-disable-next-line max-len
-    // On additionne les valeurs contenues dans le tableau pour l'affichage du total de likes et du prix par jour :
-    const reducer = (accumulator, curr) => accumulator + curr;
-    const totalLikes = likesArray.reduce(reducer);
-    const divTotalLikesPrice = document.querySelector('.priceLikes');
-    divTotalLikesPrice.innerHTML = ` <p class="totalLikes"> ${totalLikes} <img src="../images/totalLikes.svg" alt=""> </p>
-    <p class="priceDay"> ${photographe.price}€/jour</p>`;
+    if (optionPopularite.classList.contains('selected')) {
+      console.log(optionPopularite.classList.contains('selected'));
+      mediasByLikes.forEach((media) => {
+        if (media.image) {
+          const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
+          mediaImageList.displayMediaImageList(data);
+        } else if (media.video) {
+          const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
+          mediaVideoList.displayMediaVideoList(data);
+        }
+        // on recuppère les likes de tous les média dans un tableau
+        likesArray.push(media.likes);
+      });
+      // eslint-disable-next-line max-len
+      // On additionne les valeurs contenues dans le tableau pour l'affichage du total de likes et du prix par jour :
+      const reducer = (accumulator, curr) => accumulator + curr;
+      const totalLikes = likesArray.reduce(reducer);
+      const divTotalLikesPrice = document.querySelector('.priceLikes');
+      divTotalLikesPrice.innerHTML = ` <p class="totalLikes"> ${totalLikes} <img src="../images/totalLikes.svg" alt=""> </p>
+      <p class="priceDay"> ${photographe.price}€/jour</p>`;
+    }
 
     // filtrage par tags:
     const liPhotographerTags = document.querySelectorAll('.filterMedia');
@@ -174,6 +181,3 @@ fetch('../data/data.json')
 
 // Création du Header de la page
 createHeaderPhotographerPage();
-
-// listbox
-createListBox();

@@ -2,7 +2,7 @@ function createListBox() {
   const containerDropDown = document.querySelector('.containerDropDown');
   containerDropDown.innerHTML = ` <p class="sortBy"> Trier par </p>
   <div class="accordion-item close" role="listbox" tabindex="0" aria-activedescendant="listbox1-1">
-      <div class="btnPopularite" id="listbox1-1" class="selected" aria-selected="true">
+      <div class="btnPopularite selected" id="listbox1-1"  aria-selected="true">
           <button>Popularité <i class="fas fa-chevron-down"></i></button>
       </div>
       <div class="accordion-item-contenu" id="listbox1-2" role="option" aria-selected="false">
@@ -28,6 +28,7 @@ function createListBox() {
     }
   }
   btnPop.addEventListener('click', toggleItem);
+
   const listbox = document.querySelector('[role="listbox"]');
   const options = [...listbox.children];
 
