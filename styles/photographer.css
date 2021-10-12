@@ -108,51 +108,80 @@ ul{
    margin-right: 20px;
    margin-top: 30px;
 }
-.btnPopularite{
-    background: #901C1C;
-    color: white;
-    width: 170px;
-    height: 69px;
+/*-------------------------------------------------accordion-------------------------------------------------*/
+.accordion-item{
+    display: flex;
+    flex-direction: column;
+    background: #911C1C;
     border-radius: 5px;
-    border: none;
+    width: 170px;
     margin-top: 20px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 23px;
-    cursor: pointer;
-}
-.btnPopularite i{
-    padding-left: 20px;
-}
-.dropDownContent{
-    display: none;
-    margin-top: 20px;
+    padding: 2px 2px;
     position: relative;
-    
 }
-.dropDownContent ul{
-    width: 170px;
-    height: 170px;
-    background: #901C1C;
-    border-radius: 5px;
-    position: absolute;
-    left: 10px;
-    z-index: 400;
-}
-.sortBtn{
-    background: #901C1C;
+.btnPopularite button{
+    background: #911C1C;
+    border:none;
     color: white;
-    font-weight: bold;
-    border: none;
-    font-size: 18px;
-    line-height: 23px;
     cursor: pointer;
-    height: 56px;
-    padding-left: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    width: 166px;
+    height: 69px;
+    line-height: 23px;
 }
-.sortBtn i{
-    padding-left: 20px;
+.btnPopularite button i{
+    padding-left: 10px;
 }
+.open {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    z-index: 400;
+    position: absolute;
+    left: 88px;
+}
+.close .accordion-item-contenu{
+    height:0px;
+    transition:height 1s ease-out;
+    -webkit-transform: scaleY(0);
+	-o-transform: scaleY(0);
+	-ms-transform: scaleY(0);
+	transform: scaleY(0);
+    float:left;
+    display:block;
+}
+.open .accordion-item-contenu{
+    border-radius: 5px;
+    width: 100%;
+    margin: 0px 0px 10px 0px;
+    display:block;
+    border-top: 1px solid white;
+    -webkit-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: top;
+    -o-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    -o-transition: -o-transform 0.4s ease;
+    -ms-transition: -ms-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    box-sizing: border-box;
+ }
+ .open .accordion-item-contenu button{
+    background: #911C1C;
+    border:none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    width: 166px;
+    height: 69px;
+    line-height: 23px;
+    padding-right: 70px;
+ }
+
 
 
 .media{

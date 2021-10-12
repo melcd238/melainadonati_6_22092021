@@ -5,6 +5,8 @@
 /* eslint-disable import/extensions */
 /* eslint-disable no-console */
 import Photographer from '../class/photographer.js';
+import { createListBox } from './listbox.js';
+import {createHeaderPhotographerPage} from './headerPhotographerPage.js';
 
 // Fetch
 fetch('../data/data.json')
@@ -129,20 +131,7 @@ fetch('../data/data.json')
       }
     }
     // filtrage :
-    const btnPopularite = document.querySelector('.btnPopularite');
-    const dropDownContent = document.querySelector('.dropDownContent');
-    const liPopularite = document.querySelector('.popularite');
-    const liDate = document.querySelector('.date');
-    const liTitre = document.querySelector('.titre');
-    // AU click sur le btn Pupularité, on fait disparaître de btn et apparaître la listBox.
-    btnPopularite.addEventListener('click', () => {
-      btnPopularite.style.display = 'none';
-      dropDownContent.style.display = 'block';
-    });
-    liPopularite.addEventListener('click', () => {
-      btnPopularite.style.display = 'block';
-      dropDownContent.style.display = 'none';
-    });
+
     // L'affichage de la page se fait selon la popularité par défaut:
     mediasByLikes.forEach((media) => {
       if (media.image) {
@@ -184,13 +173,7 @@ fetch('../data/data.json')
   });
 
 // Création du Header de la page
-const HeaderPhotographer = document.querySelector('.headerPhotographer');
-const logo = document.createElement('a');
-logo.setAttribute('href', '../index.html');
-logo.setAttribute('aria-label', 'retour à la page accueil');
-logo.classList.add('logoLinkPhotographer');
-const logoImg = document.createElement('img');
-logoImg.setAttribute('src', '../images/logo.svg');
-logoImg.setAttribute('alt', 'Fisheye Home page');
-logo.appendChild(logoImg);
-HeaderPhotographer.appendChild(logo);
+createHeaderPhotographerPage();
+
+// listbox
+createListBox();

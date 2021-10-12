@@ -225,6 +225,7 @@ ul{
 }
 .hastag ul{
  display: flex;
+ text-align: center;
 }
 .hastag li{
     color:#901C1C;
