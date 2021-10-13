@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
 /* eslint-disable import/extensions */
 // import Header from './header.js';
@@ -8,11 +9,9 @@ fetch('data/data.json')
   .then((response) => response.json())
   .then((data) => {
     const photographersArray = data.photographers;
-    const mediaArray = data.media;
     let tagsArray = photographersArray.map((photographer) => photographer.tags);
     tagsArray = [...new Set([].concat(...tagsArray))];
     console.log(tagsArray);
-    console.log(mediaArray);
 
     // creation du header avec tags récupérés de manière dynamqiue:
     class Header {
@@ -42,10 +41,8 @@ fetch('data/data.json')
         const tagsName = tagsArray;
         tagsName.forEach((tagName) => {
           const li = document.createElement('li');
-          li.setAttribute('class', 'filter');
-          li.setAttribute('data-filter', `${tagName}`);
-          const text = document.createTextNode(`#${tagName}`);
-          li.appendChild(text);
+          li.innerHTML = `<a href="../../index.html?tag=${tagName}" class="linkPhotographer"> #${tagName}</a>`;
+          li.setAttribute('class', 'filterTag');
           ulNavBar.appendChild(li);
         });
 
@@ -77,29 +74,26 @@ fetch('data/data.json')
     headerContent.createHeader();
 
     // Affichage des Photographes:
-
-    photographersArray.forEach((photographer) => {
-      const photographersList = new Photographer(photographer);
-      console.log(photographersList);
-      photographersList.displayPhotographersList();
-    });
-    // filtrer au click sur un # de la nav:
-    const liTags = document.querySelectorAll('.filter');
-    const cards = document.querySelectorAll('.cardPhotographer');
-    liTags.forEach((tag) => tag.addEventListener('click', () => {
-      // on recup la valeur du filtre
-      const value = tag.dataset.filter;
-      console.log(value);
-      tag.classList.toggle('active');
-      cards.forEach((card) => {
-        if (!card.classList.contains(value)) {
-          // eslint-disable-next-line no-param-reassign
-          card.style.display = 'none';
-        }
-        if (!tag.classList.contains('active')) {
-          // eslint-disable-next-line no-param-reassign
-          card.style.display = 'block';
+    // recupération du tag via l'url:
+    function getTag(paramsUrl, tag) {
+      paramsUrl = new URL(document.location).searchParams;
+      tag = paramsUrl.get('tag');
+      return tag;
+    }
+    // Si on ne recupère pas de tag, on affiche tous les photographes
+    if (getTag() == null) {
+      photographersArray.forEach((photographer) => {
+        const photographersList = new Photographer(photographer);
+        photographersList.displayPhotographersList();
+      });
+    } else {
+      photographersArray.forEach((photographer) => {
+        // eslint-disable-next-line eqeqeq
+        const activeTag = photographer.tags.filter((tag) => tag == getTag());
+        if (activeTag.length > 0) {
+          const photographersList = new Photographer(photographer);
+          photographersList.displayPhotographersList();
         }
       });
-    }));
+    }
   });

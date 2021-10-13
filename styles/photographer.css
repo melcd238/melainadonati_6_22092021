@@ -62,17 +62,21 @@ ul{
 .tags li{
     border: 0.5px solid #C4C4C4;
     border-radius: 12px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 23px;
-    color: #901C1C;
     padding: 3px;
     margin: 3px;
     cursor: pointer;
 }
-.tags li:focus, .tags li:hover, .tags .active{
-    color:#E5E5E5;
+.tags a{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    color: #901C1C;
+}
+.tags li:focus, .tags li:hover{
     background:#901C1C ;
+ }
+ .tags a:focus, .tags a:hover {
+    color:#E5E5E5;
  }
 .btnContact button{
     background: #911C1C;

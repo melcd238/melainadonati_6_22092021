@@ -32,10 +32,10 @@ export default class Photographer {
     const tagsPhotographer = this.tags;
     console.log(tagsPhotographer);
     tagsPhotographer.forEach((tag) => {
-      card.classList.add(`${tag}`);
       const li = document.createElement('li');
-      const text = document.createTextNode(`#${tag}`);
-      li.appendChild(text);
+      li.innerHTML = `<a href="../../index.html?tag=${tag}" class="linkPhotographer"> #${tag}</a>`;
+      li.setAttribute('class', 'filterPhotographer');
+      li.setAttribute('data-filter', `${tag}`);
       ulHastag.appendChild(li);
     });
     card.appendChild(divHastag);
@@ -45,6 +45,8 @@ export default class Photographer {
   // methode pour afficher un photographe sur la page photographer.html
   displayOnePhotographer() {
     const presentationPhotographer = document.querySelector('.presentation');
+    const priceDay = document.querySelector('.priceDay');
+    priceDay.innerHTML = `<span>${this.price} €/jour</span>`;
     presentationPhotographer.innerHTML = `<div class="information">
     <h2>${this.name}</h2>
     <div class="locationText">
@@ -66,10 +68,9 @@ export default class Photographer {
     const tagsPhotographer = this.tags;
     tagsPhotographer.forEach((tag) => {
       const li = document.createElement('li');
-      li.setAttribute('class', 'filterMedia');
+      li.innerHTML = `<a href="../../index.html?tag=${tag}" class="linkPhotographer"> #${tag}</a>`;
+      li.setAttribute('class', 'filterPhotographer');
       li.setAttribute('data-filter', `${tag}`);
-      const text = document.createTextNode(`#${tag}`);
-      li.appendChild(text);
       ultags.appendChild(li);
     });
   }

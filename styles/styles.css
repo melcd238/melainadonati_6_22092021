@@ -41,19 +41,23 @@ ul{
     display: flex;
 } 
 .navBar li{
-    color:#901C1C;
     border:0.5px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 11px;
     padding: 3px;
     margin-right: 3px;
     cursor: pointer;
+}
+.navBar a{
     font-size: 12px;
     font-weight: bolder;
     text-transform: capitalize;
+    color:#901C1C;
 }
-.navBar li:focus, .navBar li:hover, .navBar .active{
-   color:#E5E5E5;
+.navBar a:focus, .navBar a:hover, .navBar a:active{
+    color:#E5E5E5;
+}
+.navBar li:focus, .navBar li:hover, .navBar li:active{
    background:#901C1C ;
 }
 
@@ -142,6 +146,7 @@ ul{
     .btnGoToMain{
         left:30%;
     }
+    
 }
 @media screen and (max-width:340px){
     .logoLink img{
@@ -228,15 +233,23 @@ ul{
  text-align: center;
 }
 .hastag li{
-    color:#901C1C;
     border:0.5px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 11px;
     padding: 3px;
     margin-right: 3px;
     cursor: pointer;
+}
+.hastag a{
+    color:#901C1C;
     font-size: 12px;
-    font-weight: bolder; 
+    font-weight: bolder;  
+}
+.hastag li:hover, .hastag li:focus{
+    background:#901C1C ;
+}
+.hastag a:hover, .hastag a:focus{
+    color:white;
 }
 @media screen and (max-width:1120px){
     #indexPage{
