@@ -7,7 +7,7 @@ body{
     background: #E5E5E5;
     font-family: 'DM Sans', sans-serif;
     position: relative;
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 a{
@@ -39,13 +39,14 @@ ul{
 }
 .navBar ul{
     display: flex;
+    text-align: center;
 } 
 .navBar li{
     border:0.5px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 11px;
-    padding: 3px;
-    margin-right: 3px;
+    padding: 2px;
+    margin-right: 4px;
     cursor: pointer;
 }
 .navBar a{
@@ -208,6 +209,7 @@ ul{
 .linkPhotographer h2{
     font-size: 36px;
     line-height: 47px;
+    font-weight: 400;
     color:#D3573C;
     text-decoration: none;
 }
@@ -239,7 +241,7 @@ ul{
     border:0.5px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 11px;
-    padding: 3px;
+    padding: 2px;
     margin-right: 3px;
     cursor: pointer;
 }

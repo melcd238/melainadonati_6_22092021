@@ -8,7 +8,7 @@ body{
     background: #FAFAFA;
     font-family: 'DM Sans', sans-serif;
     position: relative;
-    width: 90%;
+    width: 80%;
     margin: auto;
 }
 a{
@@ -36,6 +36,7 @@ ul{
 }
 .information h2{
     color: #D3573C;
+    font-weight: 400;
     font-size: 64px;
     line-height: 83px;
 }
@@ -62,7 +63,7 @@ ul{
 .tags li{
     border: 0.5px solid #C4C4C4;
     border-radius: 12px;
-    padding: 3px;
+    padding: 2px;
     margin: 3px;
     cursor: pointer;
 }
@@ -88,7 +89,7 @@ ul{
     padding: 21px 11px;
     border: none;
     margin-top: 40px;
-    margin-left: -90%;
+    margin-left: -80%;
 }
 .btnContact button:hover, .btnContact button:focus{
     background: #D3573C;
@@ -194,6 +195,7 @@ ul{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 .mediaView{
     margin-bottom: 40px;
@@ -244,7 +246,7 @@ ul{
     position: fixed;
     z-index: 400;
     right: 20px;
-    bottom: -5px;
+    bottom: -20px;
 }
 .totalLikes, .priceDay{
    font-size: 24px;

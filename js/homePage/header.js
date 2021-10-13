@@ -1,6 +1,8 @@
+// creation du header avec tags récupérés de manière dynamqiue:
 export default class Header {
-  constructor(selector) {
+  constructor(selector, tagList) {
     this.selector = selector;
+    this.tagList = tagList;
   }
 
   createHeader() {
@@ -22,11 +24,11 @@ export default class Header {
     navBar.classList.add('navBar');
     const ulNavBar = document.createElement('ul');
     navBar.appendChild(ulNavBar);
-    const tagsName = ['portrait', 'art', 'fashion', 'architecture', 'travel', 'sport', 'animals', 'events'];
-    tagsName.forEach((tagName) => {
+    this.tagList.forEach((tagName) => {
       const li = document.createElement('li');
-      const text = document.createTextNode(`#${tagName}`);
-      li.appendChild(text);
+      li.innerHTML = `<a href="../../index.html?tag=${tagName}" class="linkPhotographer"> #${tagName}</a>`;
+      li.setAttribute('class', 'filterTag');
+      li.setAttribute('data-filter', `${tagName}`);
       ulNavBar.appendChild(li);
     });
 
