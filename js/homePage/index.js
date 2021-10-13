@@ -43,6 +43,7 @@ fetch('data/data.json')
           const li = document.createElement('li');
           li.innerHTML = `<a href="../../index.html?tag=${tagName}" class="linkPhotographer"> #${tagName}</a>`;
           li.setAttribute('class', 'filterTag');
+          li.setAttribute('data-filter', `${tagName}`);
           ulNavBar.appendChild(li);
         });
 
@@ -90,6 +91,14 @@ fetch('data/data.json')
       photographersArray.forEach((photographer) => {
         // eslint-disable-next-line eqeqeq
         const activeTag = photographer.tags.filter((tag) => tag == getTag());
+        const liTags = document.querySelectorAll('.filterTag');
+        liTags.forEach((tag) => {
+          const value = tag.dataset.filter;
+          if (getTag() == value) {
+            console.log(value);
+            tag.classList.add('active');
+          }
+        });
         if (activeTag.length > 0) {
           const photographersList = new Photographer(photographer);
           photographersList.displayPhotographersList();

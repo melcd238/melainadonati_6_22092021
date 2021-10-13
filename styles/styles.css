@@ -54,10 +54,13 @@ ul{
     text-transform: capitalize;
     color:#901C1C;
 }
-.navBar a:focus, .navBar a:hover, .navBar a:active{
+.navBar a:focus, .navBar a:hover{
     color:#E5E5E5;
 }
-.navBar li:focus, .navBar li:hover, .navBar li:active{
+.active a{
+    color:#E5E5E5;
+}
+.navBar li:focus, .navBar li:hover, .active{
    background:#901C1C ;
 }
 
@@ -249,6 +252,9 @@ ul{
     background:#901C1C ;
 }
 .hastag a:hover, .hastag a:focus{
+    color:white;
+}
+.active a{
     color:white;
 }
 @media screen and (max-width:1120px){

@@ -34,7 +34,7 @@ export default class Photographer {
     tagsPhotographer.forEach((tag) => {
       const li = document.createElement('li');
       li.innerHTML = `<a href="../../index.html?tag=${tag}" class="linkPhotographer"> #${tag}</a>`;
-      li.setAttribute('class', 'filterPhotographer');
+      li.setAttribute('class', 'filterTag');
       li.setAttribute('data-filter', `${tag}`);
       ulHastag.appendChild(li);
     });
