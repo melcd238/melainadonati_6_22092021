@@ -36,17 +36,17 @@ fetch('data/data.json')
       photographersArray.forEach((photographer) => {
         // eslint-disable-next-line eqeqeq
         const activeTag = photographer.tags.filter((tag) => tag == getTag());
-        const liTags = document.querySelectorAll('.filterTag');
-        liTags.forEach((tag) => {
-          const value = tag.dataset.filter;
-          // eslint-disable-next-line eqeqeq
-          if (getTag() == value) {
-            tag.classList.add('active');
-          }
-        });
         if (activeTag.length > 0) {
           const photographersList = new Photographer(photographer);
           photographersList.displayPhotographersList();
+        }
+      });
+      const liTags = document.querySelectorAll('.filterTag');
+      liTags.forEach((tag) => {
+        const value = tag.dataset.filter;
+        // eslint-disable-next-line eqeqeq
+        if (getTag() == value) {
+          tag.classList.add('active');
         }
       });
     }
