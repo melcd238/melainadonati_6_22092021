@@ -12,6 +12,7 @@ function createListBox() {
         <button>Titre</button>
       </div>
 </div>`;
+
   const btnPop = document.querySelector('.btnPopularite');
   const chevron = document.querySelector('.fa-chevron-down');
   function toggleItem() {

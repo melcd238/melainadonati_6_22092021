@@ -22,13 +22,13 @@ fetch('../data/data.json')
       const photoIdString = photograph.id.toString();
       return photoIdString === photographId;
     });
-    console.log(photographe);
+
     // recuperation du media concerné
     const medias = mediaArray.filter((media) => {
       const mediaIDString = media.photographerId;
       return mediaIDString === photographe.id;
     });
-    console.log(medias);
+
     // affichage du total des likes des media
     const likesArray = [];
     medias.forEach((media) => {
@@ -66,10 +66,6 @@ fetch('../data/data.json')
     photographe.displayOnePhotographer();
 
     // Affichage des médias:
-    const MEDIA_TYPE = {
-      IMAGE: 'image',
-      VIDEO: 'video',
-    };
     class Media {
       constructor(data) {
         this.title = data.title;
@@ -87,7 +83,7 @@ fetch('../data/data.json')
         this.image = data.image;
       }
 
-      displayMediaImageList() {
+      displayMediaList() {
         const sectionMedia = document.querySelector('.media');
         const mediaImageCard = document.createElement('div');
         mediaImageCard.setAttribute('class', 'mediaView');
@@ -109,7 +105,7 @@ fetch('../data/data.json')
         this.video = data.video;
       }
 
-      displayMediaVideoList() {
+      displayMediaList() {
         const sectionMedia = document.querySelector('.media');
         const mediaVideoCard = document.createElement('div');
         mediaVideoCard.setAttribute('class', 'mediaView');
@@ -117,7 +113,7 @@ fetch('../data/data.json')
         mediaVideoCard.setAttribute('id', `${this.id}`);
         mediaVideoCard.innerHTML = `<div id="openLightbox" class="imageMedia">
           <video controls>
-          <source src="../images/${this.photographerId}/${this.video}" type="video/mp4" alt="">
+          <source src="../images/${this.photographerId}/${this.video}"  type="video/mp4" alt="">
       </video> </div>
       <div class="titleLikes">
           <h3> ${this.title} </h3>
@@ -128,28 +124,21 @@ fetch('../data/data.json')
     }
     class MediaFactory {
       // eslint-disable-next-line no-shadow
-      static getMedia(type, data) {
-        switch (type) {
-          case MEDIA_TYPE.IMAGE:
-            return new Image(data);
-          case MEDIA_TYPE.VIDEO:
-            return new Video(data);
-          default:
-            throw new Error('Wrong media chosen');
+      static getMedia(data) {
+        if (data.image) {
+          return new Image(data);
+        } if (data.video) {
+          return new Video(data);
         }
+        return new Error('Wrong media chosen');
       }
     }
     // listbox
     createListBox();
 
     mediasByLikes.forEach((media) => {
-      if (media.image) {
-        const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
-        mediaImageList.displayMediaImageList(data);
-      } else if (media.video) {
-        const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
-        mediaVideoList.displayMediaVideoList(data);
-      }
+      const mediaList = MediaFactory.getMedia(media);
+      mediaList.displayMediaList(data);
     });
     // filtrage :
     document.addEventListener('selectedChanged', (e) => {
@@ -161,33 +150,18 @@ fetch('../data/data.json')
       const optionTitre = document.querySelector('#listbox1-3');
       if (optionPopularite.classList.contains('selected')) {
         mediasByLikes.forEach((media) => {
-          if (media.image) {
-            const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
-            mediaImageList.displayMediaImageList(data);
-          } else if (media.video) {
-            const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
-            mediaVideoList.displayMediaVideoList(data);
-          }
+          const mediaList = MediaFactory.getMedia(media);
+          mediaList.displayMediaList(data);
         });
       } else if (optionDate.classList.contains('selected')) {
         mediaByDate.forEach((media) => {
-          if (media.image) {
-            const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
-            mediaImageList.displayMediaImageList(data);
-          } else if (media.video) {
-            const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
-            mediaVideoList.displayMediaVideoList(data);
-          }
+          const mediaList = MediaFactory.getMedia(media);
+          mediaList.displayMediaList(data);
         });
       } else if (optionTitre.classList.contains('selected')) {
         mediaByTitre.forEach((media) => {
-          if (media.image) {
-            const mediaImageList = MediaFactory.getMedia(MEDIA_TYPE.IMAGE, media);
-            mediaImageList.displayMediaImageList(data);
-          } else if (media.video) {
-            const mediaVideoList = MediaFactory.getMedia(MEDIA_TYPE.VIDEO, media);
-            mediaVideoList.displayMediaVideoList(data);
-          }
+          const mediaList = MediaFactory.getMedia(media);
+          mediaList.displayMediaList(data);
         });
       }
     });
