@@ -27,7 +27,8 @@ fetch('data/data.json')
       return tag;
     }
     // Si on ne recupère pas de tag, on affiche tous les photographes
-    if (getTag() == null) {
+    const selectedTag = getTag();
+    if (selectedTag == null) {
       photographersArray.forEach((photographer) => {
         const photographersList = new Photographer(photographer);
         photographersList.displayPhotographersList();
@@ -35,7 +36,7 @@ fetch('data/data.json')
     } else {
       photographersArray.forEach((photographer) => {
         // eslint-disable-next-line eqeqeq
-        const activeTag = photographer.tags.filter((tag) => tag == getTag());
+        const activeTag = photographer.tags.filter((tag) => tag == selectedTag);
         if (activeTag.length > 0) {
           const photographersList = new Photographer(photographer);
           photographersList.displayPhotographersList();
@@ -45,7 +46,7 @@ fetch('data/data.json')
       liTags.forEach((tag) => {
         const value = tag.dataset.filter;
         // eslint-disable-next-line eqeqeq
-        if (getTag() == value) {
+        if (selectedTag == value) {
           tag.classList.add('active');
         }
       });

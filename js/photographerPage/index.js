@@ -7,6 +7,7 @@
 import Photographer from '../class/photographer.js';
 import MediaFactory from '../class/mediaFactory.js';
 import { createListBox } from './listbox.js';
+import { totalLikesPhotographer } from './likes.js';
 import { createHeaderPhotographerPage } from './headerPhotographerPage.js';
 
 // Fetch
@@ -31,36 +32,20 @@ fetch('../data/data.json')
     });
 
     // affichage du total des likes des media
-    const likesArray = [];
-    medias.forEach((media) => {
-      likesArray.push(media.likes);
-      const reducer = (accumulator, curr) => accumulator + curr;
-      const totalLikes = likesArray.reduce(reducer);
-      const totalLikesparagraphe = document.querySelector('.totalLikes');
-      totalLikesparagraphe.innerHTML = `<span> ${totalLikes} </span> <img src="../images/totalLikes.svg" alt="">`;
-    });
+    totalLikesPhotographer(medias);
 
-    // Affichage par popularité des media :
-    const sortByLikes = (map, compareFn) => (a, b) => -compareFn(map(a), map(b));
-    const byLikesValue = (a, b) => a - b;
+    // Affichage par trie des medias :
+    const sortMedia = (map, compareFn) => (a, b) => -compareFn(map(a), map(b));
+    const byValue = (a, b) => a - b;
     const toLikes = (media) => media.likes;
-    const byLikes = sortByLikes(toLikes, byLikesValue);
-    const mediasByLikes = [...medias].sort(byLikes);
-    console.log(mediasByLikes);
-    // Affichage par date :
-    const sortByDate = (map, compareFn) => (a, b) => -compareFn(map(a), map(b));
-    const byDateValue = (a, b) => a - b;
+    const mediasByLikes = [...medias].sort(sortMedia(toLikes, byValue));
     const toDate = (media) => new Date(media.date).getTime();
-    const byDate = sortByDate(toDate, byDateValue);
-    const mediaByDate = [...medias].sort(byDate);
-    console.log(mediaByDate);
-    // Affichage par titre :
+    const mediaByDate = [...medias].sort(sortMedia(toDate, byValue));
     const mediaByTitre = medias.sort((a, b) => {
       if (a.title < b.title) return -1;
       if (a.title > b.title) return 1;
       return 0;
     });
-    console.log(mediaByTitre);
 
     // Affichage du photographe;
     photographe = new Photographer(photographe);
