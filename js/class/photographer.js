@@ -59,7 +59,7 @@ export default class Photographer {
     </div>
 </div>
 <div class="btnContact">
-    <button>Contactez-moi</button>
+    <button id="btnContactModal">Contactez-moi</button>
 </div>
 <div class="portrait">
     <img src="../images/Portraits/${this.portrait}">
@@ -72,6 +72,11 @@ export default class Photographer {
       li.setAttribute('class', 'filterPhotographer');
       li.setAttribute('data-filter', `${tag}`);
       ultags.appendChild(li);
+    });
+    const nameTitleForm = document.querySelectorAll('.nameTitle');
+    nameTitleForm.forEach((nameTitle) => {
+      // eslint-disable-next-line no-param-reassign
+      nameTitle.textContent = `${this.name}`;
     });
   }
 }
