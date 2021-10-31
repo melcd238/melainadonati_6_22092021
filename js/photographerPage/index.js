@@ -10,7 +10,7 @@
 import Photographer from '../class/photographer.js';
 import MediaFactory from '../class/mediaFactory.js';
 import { createListBox } from './listbox.js';
-import { totalLikesPhotographer } from './likes.js';
+import { totalLikesPhotographer, likes } from './likes.js';
 import { createHeaderPhotographerPage } from './headerPhotographerPage.js';
 
 // Fetch
@@ -87,30 +87,9 @@ fetch('../data/data.json')
     });
     // affichage du total des likes des media
     totalLikesPhotographer(medias);
+
     // ajouter un like en fonction du media
-    const likesBtn = document.querySelectorAll('.likesBtn');
-    likesBtn.forEach((like) => like.addEventListener('click', () => {
-      like.classList.toggle('selected');
-      if (like.classList.contains('selected')) {
-        let likeAdd = parseInt(like.textContent, 10);
-        likeAdd++;
-        like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt=""></p>`;
-        const totalLikesCounter = document.querySelector('.totalCounterLikes');
-        console.log(totalLikesCounter.textContent);
-        let totalLikes = parseInt(totalLikesCounter.textContent, 10);
-        totalLikes++;
-        totalLikesCounter.textContent = `${totalLikes}`;
-      } else {
-        let likeAdd = parseInt(like.textContent, 10);
-        likeAdd--;
-        like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt=""></p>`;
-        const totalLikesCounter = document.querySelector('.totalCounterLikes');
-        console.log(totalLikesCounter.textContent);
-        let totalLikes = parseInt(totalLikesCounter.textContent, 10);
-        totalLikes--;
-        totalLikesCounter.textContent = `${totalLikes}`;
-      }
-    }));
+    likes();
 
     // modal du formulaire
     const btnContact = document.querySelector('#btnContactModal');
