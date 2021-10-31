@@ -255,6 +255,9 @@ ul{
    font-weight: 500;
    color: #000000;
 }
+.likesBtn{
+    cursor: pointer;
+}
 /*____________________________affichage formulaire____________________________*/
 .modalForm{
     width: 600px;

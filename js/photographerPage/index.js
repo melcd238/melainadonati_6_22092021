@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-shadow */
 /* eslint-disable max-classes-per-file */
@@ -31,9 +33,6 @@ fetch('../data/data.json')
       const mediaIDString = media.photographerId;
       return mediaIDString === photographe.id;
     });
-
-    // affichage du total des likes des media
-    totalLikesPhotographer(medias);
 
     // Affichage par trie des medias :
     const sortMedia = (map, compareFn) => (a, b) => -compareFn(map(a), map(b));
@@ -86,6 +85,33 @@ fetch('../data/data.json')
         });
       }
     });
+    // affichage du total des likes des media
+    totalLikesPhotographer(medias);
+    // ajouter un like en fonction du media
+    const likesBtn = document.querySelectorAll('.likesBtn');
+    likesBtn.forEach((like) => like.addEventListener('click', () => {
+      like.classList.toggle('selected');
+      if (like.classList.contains('selected')) {
+        let likeAdd = parseInt(like.textContent, 10);
+        likeAdd++;
+        like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt=""></p>`;
+        const totalLikesCounter = document.querySelector('.totalCounterLikes');
+        console.log(totalLikesCounter.textContent);
+        let totalLikes = parseInt(totalLikesCounter.textContent, 10);
+        totalLikes++;
+        totalLikesCounter.textContent = `${totalLikes}`;
+      } else {
+        let likeAdd = parseInt(like.textContent, 10);
+        likeAdd--;
+        like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt=""></p>`;
+        const totalLikesCounter = document.querySelector('.totalCounterLikes');
+        console.log(totalLikesCounter.textContent);
+        let totalLikes = parseInt(totalLikesCounter.textContent, 10);
+        totalLikes--;
+        totalLikesCounter.textContent = `${totalLikes}`;
+      }
+    }));
+
     // modal du formulaire
     const btnContact = document.querySelector('#btnContactModal');
     const modalForm = document.querySelector('.modalForm');

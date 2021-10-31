@@ -27,7 +27,7 @@ class Image extends Media {
   </div>
   <div class="titleLikes">
       <h3> ${this.title} </h3>
-      <p class="likes"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
+      <p class="likesBtn"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
   </div> `;
     sectionMedia.appendChild(mediaImageCard);
   }
@@ -48,7 +48,7 @@ class Video extends Media {
       <video src="../images/${this.photographerId}/${this.video}"  poster type="video/mp4" ></video> </div>
     <div class="titleLikes">
         <h3> ${this.title} </h3>
-        <p class="likes"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
+        <p class="likesBtn"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
     </div> `;
     sectionMedia.appendChild(mediaVideoCard);
   }
