@@ -9,6 +9,7 @@
 /* eslint-disable no-console */
 import Photographer from '../class/photographer.js';
 import MediaFactory from '../class/mediaFactory.js';
+import LightBox from '../class/lightBox.js';
 import { createListBox } from './listbox.js';
 import { totalLikesPhotographer, likes } from './likes.js';
 import { createHeaderPhotographerPage } from './headerPhotographerPage.js';
@@ -60,6 +61,9 @@ fetch('../data/data.json')
       const mediaList = MediaFactory.getMedia(media);
       mediaList.displayMediaList(data);
     });
+    totalLikesPhotographer(medias);
+    likes();
+
     // filtrage :
     document.addEventListener('selectedChanged', (e) => {
       console.log(e.target);
@@ -85,11 +89,8 @@ fetch('../data/data.json')
         });
       }
     });
-    // affichage du total des likes des media
-    totalLikesPhotographer(medias);
-
-    // ajouter un like en fonction du media
-    likes();
+    // lightBox
+    LightBox.init();
 
     // modal du formulaire
     const btnContact = document.querySelector('#btnContactModal');
