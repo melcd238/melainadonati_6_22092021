@@ -2,6 +2,7 @@ export default class LightBox {
   static init() {
     const links = Array.from(document.querySelectorAll('a[href$= ".png"],a[href$= ".jpg"], a[href$= ".jpeg"], a[href$= ".mp4"] '));
     const gallery = links.map((link) => link.getAttribute('href'));
+    console.log(gallery);
     links.forEach((link) => link.addEventListener('click', (e) => {
       e.preventDefault();
       // eslint-disable-next-line no-new
@@ -12,20 +13,24 @@ export default class LightBox {
   constructor(url, images) {
     this.elementDom = this.createLightBox(url);
     this.images = images;
-    this.loadImage(url);
+    this.loadImageOrVideo(url);
     const sectionMedia = document.querySelector('.media');
     sectionMedia.appendChild(this.elementDom);
   }
 
-  loadImage(url) {
+  loadImageOrVideo(url) {
     this.url = null;
-    const image = new Image();
+    const image = document.createElement('img');
+    const video = document.createElement('video');
+    video.setAttribute('type', 'video/mp4');
+    console.log(video);
     const container = this.elementDom.querySelector('.lightBoxContainer');
     const loader = document.createElement('div');
     loader.classList.add('lightBoxLoader');
     container.innerHTML = '';
     container.appendChild(loader);
-    // on ecoute le chargement de l'image
+    // Mettre la condition si c'est une image : container.appendChild(image)
+    // si c'est une video  container.appendChild(video);
     image.onload = () => {
       container.removeChild(loader);
       container.appendChild(image);
@@ -49,7 +54,7 @@ export default class LightBox {
     if (i === this.images.length - 1) {
       i = -1;
     }
-    this.loadImage(this.images[i + 1]);
+    this.loadImageOrVideo(this.images[i + 1]);
   }
 
   lightBoxPrev(e) {
@@ -58,7 +63,7 @@ export default class LightBox {
     if (i === 0) {
       i = this.images.length;
     }
-    this.loadImage(this.images[i - 1]);
+    this.loadImageOrVideo(this.images[i - 1]);
   }
 
   // eslint-disable-next-line class-methods-use-this
