@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default class LightBox {
   static init() {
     const links = Array.from(document.querySelectorAll('a[href$= ".png"],a[href$= ".jpg"], a[href$= ".jpeg"], a[href$= ".mp4"] '));
@@ -10,9 +11,9 @@ export default class LightBox {
     }));
   }
 
-  constructor(url, images) {
+  constructor(url, imagesOrVideo) {
     this.elementDom = this.createLightBox(url);
-    this.images = images;
+    this.imagesOrVideo = imagesOrVideo;
     this.loadImageOrVideo(url);
     const sectionMedia = document.querySelector('.media');
     sectionMedia.appendChild(this.elementDom);
@@ -23,7 +24,6 @@ export default class LightBox {
     const image = document.createElement('img');
     const video = document.createElement('video');
     video.setAttribute('type', 'video/mp4');
-    console.log(video);
     const container = this.elementDom.querySelector('.lightBoxContainer');
     const loader = document.createElement('div');
     loader.classList.add('lightBoxLoader');
@@ -31,12 +31,19 @@ export default class LightBox {
     container.appendChild(loader);
     // Mettre la condition si c'est une image : container.appendChild(image)
     // si c'est une video  container.appendChild(video);
-    image.onload = () => {
+    if (url.match(/\.(jpeg|jpg|png)$/) != null) {
+      image.onload = () => {
+        container.removeChild(loader);
+        container.appendChild(image);
+        this.url = url;
+      };
+      image.src = url;
+    } else if (url.match(/\.(mp4)$/) != null) {
       container.removeChild(loader);
-      container.appendChild(image);
+      container.appendChild(video);
       this.url = url;
-    };
-    image.src = url;
+      video.src = url;
+    }
   }
 
   close(e) {
@@ -50,20 +57,20 @@ export default class LightBox {
   lightBoxNext(e) {
     e.preventDefault();
     // eslint-disable-next-line prefer-const
-    let i = this.images.findIndex((image) => image === this.url);
-    if (i === this.images.length - 1) {
+    let i = this.imagesOrVideo.findIndex((image) => image === this.url);
+    if (i === this.imagesOrVideo.length - 1) {
       i = -1;
     }
-    this.loadImageOrVideo(this.images[i + 1]);
+    this.loadImageOrVideo(this.imagesOrVideo[i + 1]);
   }
 
   lightBoxPrev(e) {
     e.preventDefault();
-    let i = this.images.findIndex((image) => image === this.url);
+    let i = this.imagesOrVideo.findIndex((image) => image === this.url);
     if (i === 0) {
-      i = this.images.length;
+      i = this.imagesOrVideo.length;
     }
-    this.loadImageOrVideo(this.images[i - 1]);
+    this.loadImageOrVideo(this.imagesOrVideo[i - 1]);
   }
 
   // eslint-disable-next-line class-methods-use-this
