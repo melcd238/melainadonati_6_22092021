@@ -45,7 +45,7 @@ class Video extends Media {
     mediaVideoCard.classList.add(`${this.tags}`);
     mediaVideoCard.setAttribute('id', `${this.id}`);
     mediaVideoCard.innerHTML = `<a  class="imageMedia" href= "../images/${this.photographerId}/${this.video}" >
-      <video src="../images/${this.photographerId}/${this.video}"  poster type="video/mp4" ></video> </a>
+      <video src="../images/${this.photographerId}/${this.video}"  poster type="video/mp4"></video> </a>
     <div class="titleLikes">
         <h3> ${this.title} </h3>
         <p class="likesBtn"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
