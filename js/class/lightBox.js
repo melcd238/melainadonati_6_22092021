@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-console */
 export default class LightBox {
   static init() {
@@ -36,6 +37,13 @@ export default class LightBox {
         container.removeChild(loader);
         container.appendChild(image);
         this.url = url;
+        let title = '';
+        let index = url.lastIndexOf('/');
+        let titleArray = url.substring(index + 1).replace('.jpg', '').split('_');
+        titleArray.forEach((word) => {
+          title += `${word} `;
+        });
+        console.log(title);
       };
       image.src = url;
     } else if (url.match(/\.(mp4)$/) != null) {
@@ -43,6 +51,13 @@ export default class LightBox {
       container.appendChild(video);
       this.url = url;
       video.src = url;
+      let title = '';
+      let index = url.lastIndexOf('/');
+      let titleArray = url.substring(index + 1).replace('.mp4', '').split('_');
+      titleArray.forEach((word) => {
+        title += `${word} `;
+      });
+      console.log(title);
     }
   }
 
