@@ -13,6 +13,7 @@ import LightBox from '../class/lightBox.js';
 import { createListBox } from './listbox.js';
 import { totalLikesPhotographer, likes } from './likes.js';
 import { createHeaderPhotographerPage } from './headerPhotographerPage.js';
+import { createForm } from './form.js';
 
 // Fetch
 fetch('../data/data.json')
@@ -91,99 +92,8 @@ fetch('../data/data.json')
     });
     // lightBox
     LightBox.init();
-
-    // modal du formulaire
-    const btnContact = document.querySelector('#btnContactModal');
-    const modalForm = document.querySelector('.modalForm');
-    const bground = document.querySelector('.bground');
-    const bgValidation = document.querySelector('.bgroundValidation');
-    const crossClose = document.querySelector('.crossClose');
-    btnContact.addEventListener('click', () => {
-      modalForm.style.display = 'block';
-      bground.style.display = 'block';
-    });
-    crossClose.addEventListener('click', () => {
-      modalForm.style.display = 'none';
-      bground.style.display = 'none';
-    });
-    // validation du formulaire :
-    // eslint-disable-next-line no-unused-vars
-    let formIsValid = false;
-    // Dom éléments pour la validation du formulaire
-    const inputFirst = document.querySelector('#firstName');
-    const inputLast = document.querySelector('#lastName');
-    const inputEmail = document.querySelector('#email');
-    const inputMessage = document.querySelector('#message');
-    const formDatas = document.querySelectorAll('.formData');
-    const validationForm = document.querySelector('#validation');
-    const modalValidation = document.querySelector('.modalValidation');
-
-    function checkValidityInput() {
-      const hasError = [];
-      const regexFirstLast = /^([a-zA-Z-\s]){2,30}$/;
-      const regexMessage = /^([a-zA-Z-\s]){10,100}$/;
-      const regexMail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-
-      // inputFirst validity:
-      if (!inputFirst.value || regexFirstLast.test(inputFirst.value) === false) {
-        formDatas[0].dataset.errorVisible = 'true';
-        hasError.push(true);
-      } else {
-        formDatas[0].dataset.errorVisible = 'false';
-      }
-
-      // inputLast validity:
-      if (!inputLast.value || regexFirstLast.test(inputLast.value) === false) {
-        formDatas[1].dataset.errorVisible = 'true';
-        hasError.push(true);
-      } else {
-        formDatas[1].dataset.errorVisible = 'false';
-      }
-
-      // Validation inputEmail:
-      if (!inputEmail.value || regexMail.test(inputEmail.value) === false) {
-        formDatas[2].dataset.errorVisible = 'true';
-        hasError.push(true);
-      } else {
-        formDatas[2].dataset.errorVisible = 'false';
-      }
-
-      // Validation inputMessage:
-      if (!inputMessage.value || regexMessage.test(inputMessage.value) === false) {
-        formDatas[3].dataset.errorVisible = 'true';
-        hasError.push(true);
-      } else {
-        formDatas[3].dataset.errorVisible = 'false';
-      }
-
-      if (hasError.length > 0) {
-        return formIsValid = false;
-      }
-      return formIsValid = true;
-    }
-    validationForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      checkValidityInput();
-      if (formIsValid) {
-        modalForm.style.display = 'none';
-        bground.style.display = 'none';
-        modalValidation.style.display = 'block';
-        bgValidation.style.display = 'block';
-        const formInput = {
-          firstName: inputFirst.value,
-          lastName: inputLast.value,
-          email: inputEmail.value,
-          message: inputMessage.value,
-        };
-        console.log(formInput);
-      }
-    });
-    // fermeture de la modal de confirmation:
-    const btnCloseConfirm = document.querySelector('.crossCloseValidation');
-    btnCloseConfirm.addEventListener('click', () => {
-      modalValidation.style.display = 'none';
-      bgValidation.style.display = 'none';
-    });
+    // Form
+    createForm();
   });
 
 // Création du Header de la page

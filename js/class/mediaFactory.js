@@ -23,12 +23,13 @@ class Image extends Media {
     mediaImageCard.classList.add(`${this.tags}`);
     mediaImageCard.setAttribute('id', `${this.id}`);
     mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "../images/${this.photographerId}/${this.image}">
-      <img src="../images/${this.photographerId}/${this.image}" alt="">
+      <img  src="../images/${this.photographerId}/${this.image}" alt=""/>
   </a>
   <div class="titleLikes">
       <h3> ${this.title} </h3>
-      <p class="likesBtn"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
+      <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt=""></p>
   </div> `;
+
     sectionMedia.appendChild(mediaImageCard);
   }
 }
@@ -48,7 +49,7 @@ class Video extends Media {
       <video src="../images/${this.photographerId}/${this.video}"  poster type="video/mp4"></video> </a>
     <div class="titleLikes">
         <h3> ${this.title} </h3>
-        <p class="likesBtn"> ${this.likes} <img src="../images/likes.svg" alt=""></p>
+        <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt=""></p>
     </div> `;
     sectionMedia.appendChild(mediaVideoCard);
   }
