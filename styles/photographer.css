@@ -277,6 +277,10 @@ ul{
 .likesBtn{
     cursor: pointer;
 }
+.imgLike{
+    width: 19px;
+    height: 19px;
+}
 
 @media screen and (max-width:580px){
     .priceLikes{

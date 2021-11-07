@@ -20,7 +20,6 @@ class Image extends Media {
     const sectionMedia = document.querySelector('.media');
     const mediaImageCard = document.createElement('div');
     mediaImageCard.setAttribute('class', 'mediaView');
-    mediaImageCard.classList.add(`${this.tags}`);
     mediaImageCard.setAttribute('id', `${this.id}`);
     mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "../images/${this.photographerId}/${this.image}">
       <img  src="../images/${this.photographerId}/${this.image}" alt=""/>
@@ -43,7 +42,6 @@ class Video extends Media {
     const sectionMedia = document.querySelector('.media');
     const mediaVideoCard = document.createElement('div');
     mediaVideoCard.setAttribute('class', 'mediaView');
-    mediaVideoCard.classList.add(`${this.tags}`);
     mediaVideoCard.setAttribute('id', `${this.id}`);
     mediaVideoCard.innerHTML = `<a  class="imageMedia" href= "../images/${this.photographerId}/${this.video}" >
       <video src="../images/${this.photographerId}/${this.video}"  poster type="video/mp4"></video> </a>
