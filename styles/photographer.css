@@ -217,7 +217,9 @@ ul{
 .imageMedia video{
     width: 350px;
     height: 300px;
-    border-radius: 5px; 
+    border-radius: 5px;
+    object-fit: cover;
+    cursor: pointer; 
 }
 .titleLikes{
     display: flex;
@@ -462,12 +464,19 @@ textarea{
      opacity: 1;
  }
  .lightBoxContainer img {
-     max-width: 100%;
-     height: 600px;
+     width: 850px;
+     height: 700px;
+     border-radius: 5px;
+     background-position: center; 
+     background-repeat: no-repeat; 
+     background-size: cover;
+     
  }
  .lightBoxContainer video {
-    max-width: 100%;
-    height: 600px;
+    width: 850px;
+    height: 700px;
+    border-radius: 5px;
+    object-fit: cover;
  }
  .lightBoxContainer{
      margin-left: 200px;
