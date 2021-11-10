@@ -227,7 +227,7 @@ ul{
 .price{
     font-size: 9px;
     line-height: 12px;
-    color: #757575;
+    color: black;/*modifié pour wcag*/
     height: 19px;
 }
 .hastag{
