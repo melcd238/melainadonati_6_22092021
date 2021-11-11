@@ -2,14 +2,14 @@ function createListBox() {
   const containerDropDown = document.querySelector('.containerDropDown');
   containerDropDown.innerHTML = ` <p class="sortBy"> Trier par </p>
   <div class="accordion-item close" role="listbox" tabindex="0" aria-activedescendant="listbox1-1">
-      <div class="btnPopularite selected" id="listbox1-1"  aria-selected="true">
+      <div class="btnPopularite selected" id="listbox1-1"  aria-selected="true" aria-label="Trier par popularité actuellement">
           <button>Popularité <i class="fas fa-chevron-down"></i></button>
       </div>
-      <div class="accordion-item-contenu" id="listbox1-2" role="option" aria-selected="false">
-        <button >Date </button>
+      <div class="accordion-item-contenu" id="listbox1-2" tabindex="0" role="option" aria-label="Trier par date" aria-selected="false">
+        <button>Date  <i class="fas fa-chevron-down"></i></button>
       </div>
-      <div class="accordion-item-contenu" id="listbox1-3" role="option" aria-selected="false">
-        <button>Titre</button>
+      <div class="accordion-item-contenu" id="listbox1-3" tabindex="0" role="option"  aria-label="Trier par titre" aria-selected="false">
+        <button>Titre <i class="fas fa-chevron-down"></i></button>
       </div>
 </div>`;
 
@@ -41,19 +41,17 @@ function createListBox() {
     options.forEach((option) => option.classList.remove('selected'));
     options.forEach((option) => option.removeAttribute('aria-selected', 'false'));
     const btnText = selectedOption.children;
-    if (btnText[0].innerText === 'Date') {
+    if (btnText[0].innerText === 'Date ') {
       btnDate.classList.toggle('active');
       if (btnDate.classList.contains('active')) {
         btnPopularite.style.display = 'none';
         btnTitre.style.display = 'none';
-        // creation de la balise i avec le chevron
       } else {
         btnPopularite.style.display = 'block';
         btnTitre.style.display = 'block';
-        // on enlève la balise i avec le chevron
       }
     }
-    if (btnText[0].innerText === 'Titre') {
+    if (btnText[0].innerText === 'Titre ') {
       btnTitre.classList.toggle('active');
       if (btnTitre.classList.contains('active')) {
         btnPopularite.style.display = 'none';

@@ -22,11 +22,11 @@ class Image extends Media {
     mediaImageCard.setAttribute('class', 'mediaView');
     mediaImageCard.setAttribute('id', `${this.id}`);
     mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "../images/${this.photographerId}/${this.image}">
-      <img  src="../images/${this.photographerId}/${this.image}" alt=""/>
+      <img  src="../images/${this.photographerId}/${this.image}" alt="${this.title}"/>
   </a>
   <div class="titleLikes">
       <h3> ${this.title} </h3>
-      <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt=""></p>
+      <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt="heart" aria-label="likes" role="button" tabindex="0"></p>
   </div> `;
 
     sectionMedia.appendChild(mediaImageCard);
@@ -47,7 +47,7 @@ class Video extends Media {
       <video src="../images/${this.photographerId}/${this.video}"  poster type="video/mp4"></video> </a>
     <div class="titleLikes">
         <h3> ${this.title} </h3>
-        <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt=""></p>
+        <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt="heart" aria-label="likes" role="button" tabindex="0"></p>
     </div> `;
     sectionMedia.appendChild(mediaVideoCard);
   }

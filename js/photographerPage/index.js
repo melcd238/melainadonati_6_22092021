@@ -78,16 +78,19 @@ fetch('../data/data.json')
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
+        likes();
       } else if (optionDate.classList.contains('selected')) {
         mediaByDate.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
+        likes();
       } else if (optionTitre.classList.contains('selected')) {
         mediaByTitre.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
+        likes();
       }
     });
     // lightBox

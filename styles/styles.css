@@ -55,7 +55,7 @@ ul{
     text-transform: capitalize;
     color:#901C1C;
 }
-.navBar a:focus, .navBar a:hover{
+ .navBar a:hover{
     color:#E5E5E5;
 }
 .active a{
@@ -90,6 +90,7 @@ ul{
     width: 30%;
     display: flex;
 }
+/*
 @media screen and (max-width:1200px) {
     .indexHeader{
         width: 100%;
@@ -159,7 +160,8 @@ ul{
     .btnGoToMain{
         left:25%;
     }
-}
+}*/
+
 /* MAIN */
 #indexMain{
     margin-top: 30px;
@@ -253,13 +255,14 @@ ul{
 .hastag li:hover, .hastag li:focus{
     background:#901C1C ;
 }
-.hastag a:hover, .hastag a:focus{
+.hastag a:hover{
     color:white;
 }
 .active a{
     color:white;
 }
-@media screen and (max-width:1120px){
+
+/*@media screen and (max-width:1120px){
     #indexPage{
         flex-direction: column;
         margin: auto;
@@ -283,4 +286,4 @@ ul{
         line-height: 18px;
         margin-top: -10px;
     }
-}
+}*/

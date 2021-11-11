@@ -106,16 +106,6 @@ ul{
     margin-right: 50px;
 }
 
-@media screen and (max-width:580px){
-  .presentation{
-      display: none;
-  }
-  body{
-      width: 100%;
-      margin-left: 10px;
-      margin-right: 10px;
-  }
-}
 /*-------------------------------------------------accordion-------------------------------------------------*/
 .containerDropDown{
     display: flex;
@@ -148,6 +138,10 @@ ul{
     width: 166px;
     height: 69px;
     line-height: 23px;
+}
+.btnPopularite button:hover , .btnPopularite button:focus {
+    background: #D3573C;
+    color: black;
 }
 .btnPopularite button i{
     padding-left: 10px;
@@ -188,6 +182,10 @@ ul{
     transition: transform 0.4s ease;
     box-sizing: border-box;
  }
+ .open .accordion-item-contenu
+ .fa-chevron-down{
+    visibility: hidden;
+ }
  .open .accordion-item-contenu button{
     background: #911C1C;
     border:none;
@@ -200,16 +198,10 @@ ul{
     line-height: 23px;
     padding-right: 70px;
  }
- @media screen and (max-width:580px){
-    .containerDropDown{
-        display: none;
-    }
- }
-
 
 /*____________________________affichage media____________________________*/
 .media{
-    margin-top: 40px;
+    margin-top: 80px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -282,11 +274,6 @@ ul{
     height: 19px;
 }
 
-@media screen and (max-width:580px){
-    .priceLikes{
-        display: none;
-    }
-}
 /*____________________________affichage formulaire____________________________*/
 .modalForm{
     width: 600px;
@@ -389,8 +376,6 @@ textarea{
   .formData[data-error-visible="true"] .text-control {
     border: 4px solid #911C1C;
   }
-  @media screen and (max-width:580px){
-  }
   /*______________________________modal confirmation ______________________*/
   .modalValidation{
     width: 600px;
@@ -430,9 +415,7 @@ textarea{
     padding: 5px;
     cursor: pointer;
 }
-@media screen and (max-width:580px){
-  
-}
+
 
  /*______________________________lightBox______________________*/
  .lightBox{
@@ -502,6 +485,7 @@ textarea{
      background-position: center; 
      background-repeat: no-repeat; 
      background-size: cover;
+     position:relative
      
  }
  .lightBoxContainer video {
@@ -511,8 +495,8 @@ textarea{
     object-fit: cover;
  }
  .lightBoxContainer{
-     margin-left: 200px;
-     margin-right: 200px;
+     margin-left: 250px;
+     margin-right: 250px;
      display: flex;
      flex-direction: column;
      align-items: center;
