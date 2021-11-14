@@ -95,7 +95,8 @@
         ],
         "likes": 62,
         "date": "2011-12-08",
-        "price": 55
+        "price": 55,
+        "altText":"femme habillée en jaune sur la plage"
       },
       {
         "id": 8520927,
@@ -107,7 +108,8 @@
         ],
         "likes": 11,
         "date": "2011-11-06",
-        "price": 55
+        "price": 55,
+        "altText":"femme avec imprimé jungle sur un pont en milieu urbain"
       },
       {
         "id": 9025895,
@@ -119,7 +121,8 @@
         ],
         "likes": 72,
         "date": "2013-08-12",
-        "price": 55
+        "price": 55,
+        "altText":"femme habillée rayée sur fond mur en mozaïque"
       },
       {
         "id": 9275938,
@@ -131,7 +134,8 @@
         ],
         "likes": 69,
         "date": "2018-02-22",
-        "price": 55
+        "price": 55,
+        "altText":"lieu de mariage dans un jardin"
       },
       {
         "id": 2053494,
@@ -143,7 +147,8 @@
         ],
         "likes": 2,
         "date": "2020-05-25",
-        "price": 55
+        "price": 55,
+        "altText":"couples acceuilli par des invités"
       },
       {
         "id": 7324238,
@@ -155,7 +160,8 @@
         ],
         "likes": 33,
         "date": "2019-06-12",
-        "price": 55
+        "price": 55,
+        "altText":"table d'anniversaire pour 18 ans"
       },
       {
         "id": 8328953,
@@ -167,7 +173,8 @@
         ],
         "likes": 24,
         "date": "2011-12-08",
-        "price": 100
+        "price": 100,
+        "altText":"video d'une sculture de cheval en bois"
       },
       {
         "id": 7502053,
@@ -179,7 +186,8 @@
         ],
         "likes": 88,
         "date": "2007-05-07",
-        "price": 55
+        "price": 55,
+        "altText":"peinture d'un buste d'homme dans un triangle"
       },
       {
         "id": 8523492,
@@ -191,7 +199,8 @@
         ],
         "likes": 24,
         "date": "2018-05-05",
-        "price": 55
+        "price": 55,
+        "altText":"tunnel avec des grafities et une lumière violette"
       },
       {
         "id": 75902334,
@@ -203,7 +212,8 @@
         ],
         "likes": 75,
         "date": "2019-11-25",
-        "price": 55
+        "price": 55,
+        "altText":"peinture moderne d'oiseux bleus et rouges qui se regardent"
       },
       {
         "id": 73852953,

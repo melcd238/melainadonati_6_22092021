@@ -52,7 +52,7 @@ export default class Photographer {
     <h1 tabindex="0">${this.name}</h1>
     <div class="locationText">
         <p tabindex="0"> <span>${this.city},</span> <span>${this.country}</span></p>
-        <p class="text" role="text">${this.tagline}</p>
+        <p class="text" role="text" tabindex="0">${this.tagline}</p>
     </div>
     <div class="tags">
     <ul class="ulTags" aria-label="filtrer par tag">

@@ -22,6 +22,7 @@ export default class Header {
     // navBar
     const navBar = document.createElement('nav');
     navBar.classList.add('navBar');
+    navBar.setAttribute('aria-label', 'categorie des photographes');
     const ulNavBar = document.createElement('ul');
     ulNavBar.setAttribute('aria-label', 'filtrer par tag');
     navBar.appendChild(ulNavBar);
@@ -34,24 +35,24 @@ export default class Header {
     });
 
     // button
-    const btnGoToMain = document.createElement('button');
-    btnGoToMain.classList.add('btnGoToMain');
-    const linkGoToMain = document.createElement('a');
-    linkGoToMain.setAttribute('href', '#indexMain');
-    linkGoToMain.appendChild(document.createTextNode('Passer au contenu'));
+    // const btnGoToMain = document.createElement('button');
+    //  btnGoToMain.classList.add('btnGoToMain');
+    //  const linkGoToMain = document.createElement('a');
+    //  linkGoToMain.setAttribute('href', '#indexMain');
+    //  linkGoToMain.appendChild(document.createTextNode('Passer au contenu'));
 
     // apparition du bouton "passer au contenu" au scroll
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        btnGoToMain.style.visibility = 'visible';
-      } else {
-        btnGoToMain.style.visibility = 'hidden';
-      }
-    });
+    //   window.addEventListener('scroll', () => {
+    //   if (window.scrollY > 20) {
+    //   btnGoToMain.style.visibility = 'visible';
+    //  } else {
+    //  btnGoToMain.style.visibility = 'hidden';
+    //  }
+    //  });
 
     logo.appendChild(logoImg);
-    btnGoToMain.appendChild(linkGoToMain);
-    divHeader.append(logo, btnGoToMain, navBar);
+    // btnGoToMain.appendChild(linkGoToMain);
+    divHeader.append(logo, navBar); // btnGoToMain
     this.selector.appendChild(divHeader);
   }
 }

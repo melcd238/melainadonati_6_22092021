@@ -15,10 +15,10 @@
 <body>
     <header class="headerPhotographer" role="banner"></header>
     <main class="mainPhotographer">
-        <section class="presentation"></section>
+        <section class="presentation" aria-label="presentation du photographe"></section>
         
         <div class="containerDropDown"></div>
-        <section class="media"></section>
+        <section class="media" aria-label="gallerie du photographe"></section>
 
       <!-- lightbox -->
 
@@ -26,36 +26,36 @@
 
        
     <div class="bground">
-        <div class="modalForm" role="dialog" aria-hidden="true">
+        <div class="modalForm" role="dialog" aria-hidden="true" aria-label="contactez-moi formulaire">
             <div class="contactMe">
                 <h3>Contactez-moi </br> <span class="nameTitle"></span> </h3>
-                <img src="../images/crossClose.svg" alt="ferme le formulaire"  role="button" class="crossClose">
+                <img src="../images/crossClose.svg" alt="ferme le formulaire"  role="button" class="crossClose" tabindex="0">
             </div>
             <form name="contactFormulaire" id="validation">
                 <div class="formData" data-error-visible="false" data-error="Veuillez entrer entre 2 et 30 caractères pour le champ Prénom">
                     <label for="firstName">Prénom</label> </br>
-                    <input class="text-control" type="text" id="firstName" name="firstName">
+                    <input class="text-control" type="text" id="firstName" name="firstName" aria-labelledby="label-prenom">
                 </div>
                 <div class="formData"  data-error-visible="false" data-error="Veuillez entrer entre 2 et 30 caractères pour le champ Nom">
                     <label for="lastName">Nom</label> </br>
-                    <input class="text-control" type="text" id="lastName" name="lastName">
+                    <input class="text-control" type="text" id="lastName" name="lastName" aria-labelledby="label-nom">
                 </div>
                 <div class="formData" data-error-visible="false" data-error="Veuillez entrer une adresse mail au format valide ex: nom@test.fr">
                     <label for="email">Email</label> </br>
-                    <input class="text-control" type="email" id="email" name="email">
+                    <input class="text-control" type="email" id="email" name="email" aria-labelledby="label-email">
                 </div>
                 <div class="formData" data-error-visible="false" data-error="Votre message doit comprendre entre 10 et 100 caractères">
                     <label for="message">Votre message</label> </br>
-                    <textarea class='text-control' name="message" id="message" cols="30" rows="10"></textarea>
+                    <textarea class='text-control' name="message" id="message" cols="30" rows="10" aria-labelledby="label-message"></textarea>
                 </div>
                 
-                <button class="btnSubmit" type="submit">Envoyer</button>
+                <button class="btnSubmit" type="submit" tabindex="0">Envoyer</button>
             </form>
         </div>
     </div>
 
     <div class="bgroundValidation">
-        <div class="modalValidation" role="dialog" aria-hidden="true">
+        <div class="modalValidation" role="dialog" aria-hidden="true" aria-label="confirmation du message envoyé" tabindex="0">
             <img src="../images/crossClose.svg" alt="ferme la modal de validation" role="button" class="crossCloseValidation">
             <p>Merci d'avoir pris contact avec <span class="nameTitle"></span> <br>
                Surveillez votre boîte mail! Une réponse devrait vous parvenir sous 24H. <br>

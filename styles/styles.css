@@ -216,18 +216,18 @@ ul{
     text-decoration: none;
 }
 .location{
-    font-size: 13px;
+    font-size: 20px;
     color:#901C1C;
     line-height: 17px;
     height: 20px;
 }
 .textDesciption{
-    font-size: 10px;
+    font-size: 18px;
     line-height: 13px;
     height: 19px;
 }
 .price{
-    font-size: 9px;
+    font-size: 16px;
     line-height: 12px;
     color: black;/*modifié pour wcag*/
     height: 19px;

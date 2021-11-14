@@ -32,6 +32,8 @@ function createListBox() {
     }
   }
   btnPop.addEventListener('click', toggleItem);
+
+  // lecture au clavier
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown') {
       if (document.activeElement === btnpop) {

@@ -117,9 +117,9 @@ export default class LightBox {
     const sectionLightBox = document.createElement('section');
     sectionLightBox.classList.add('lightBox');
     sectionLightBox.setAttribute('aria-hidden', 'true');
-    sectionLightBox.innerHTML = `<button class="lightBoxClose">Fermer</button>
-    <button class="lightBoxNext">Suivant</button>
-    <button class="lightBoxPrev">Précédent</button>
+    sectionLightBox.innerHTML = `<button class="lightBoxClose" title="fermer la lightBox">Fermer</button>
+    <button class="lightBoxNext" title="image suivante">Suivant</button>
+    <button class="lightBoxPrev" title="image précédente">Précédent</button>
     <div class="lightBoxContainer"></div>`;
     sectionLightBox.querySelector('.lightBoxClose').addEventListener('click', this.close.bind(this));
     sectionLightBox.querySelector('.lightBoxNext').addEventListener('click', this.lightBoxNext.bind(this));
