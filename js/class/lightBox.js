@@ -31,6 +31,8 @@ export default class LightBox {
     const description = document.createElement('h3');
     description.setAttribute('class', 'titleImgLightBox');
     const container = this.elementDom.querySelector('.lightBoxContainer');
+    this.elementDom.removeAttribute('aria-hidden', 'true');
+    this.elementDom.setAttribute('aria-hidden', 'false');
     const loader = document.createElement('div');
     loader.classList.add('lightBoxLoader');
     container.innerHTML = '';
@@ -83,6 +85,8 @@ export default class LightBox {
   close(e) {
     e.preventDefault();
     this.elementDom.classList.add('fadeOut');
+    this.elementDom.removeAttribute('aria-hidden', 'false');
+    this.elementDom.setAttribute('aria-hidden', 'true');
     window.setTimeout(() => {
       this.elementDom.remove(this.elementDom);
     }, 500);
@@ -112,6 +116,7 @@ export default class LightBox {
   createLightBox() {
     const sectionLightBox = document.createElement('section');
     sectionLightBox.classList.add('lightBox');
+    sectionLightBox.setAttribute('aria-hidden', 'true');
     sectionLightBox.innerHTML = `<button class="lightBoxClose">Fermer</button>
     <button class="lightBoxNext">Suivant</button>
     <button class="lightBoxPrev">Précédent</button>

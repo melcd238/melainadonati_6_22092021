@@ -18,11 +18,15 @@ function createForm() {
 
   btnContact.addEventListener('click', () => {
     modalForm.style.display = 'block';
+    modalForm.removeAttribute('aria-hidden', 'true');
+    modalForm.setAttribute('aria-hidden', 'false');
     bground.style.display = 'block';
     inputFirst.focus();
   });
   crossClose.addEventListener('click', () => {
     modalForm.style.display = 'none';
+    modalForm.removeAttribute('aria-hidden', 'false');
+    modalForm.setAttribute('aria-hidden', 'true');
     bground.style.display = 'none';
   });
 
@@ -42,6 +46,8 @@ function createForm() {
         break;
       case 'Escape':
         modalForm.style.display = 'none';
+        modalForm.removeAttribute('aria-hidden', 'false');
+        modalForm.setAttribute('aria-hidden', 'true');
         bground.style.display = 'none';
         break;
       default:
@@ -103,6 +109,8 @@ function createForm() {
       modalForm.style.display = 'none';
       bground.style.display = 'none';
       modalValidation.style.display = 'block';
+      modalValidation.removeAttribute('aria-hidden', 'true');
+      modalValidation.setAttribute('aria-hidden', 'false');
       bgValidation.style.display = 'block';
       const formInput = {
         firstName: inputFirst.value,
@@ -119,6 +127,8 @@ function createForm() {
   const btnCloseConfirm = document.querySelector('.crossCloseValidation');
   btnCloseConfirm.addEventListener('click', () => {
     modalValidation.style.display = 'none';
+    modalValidation.removeAttribute('aria-hidden', 'false');
+    modalValidation.setAttribute('aria-hidden', 'true');
     bgValidation.style.display = 'none';
   });
   // fermeture de la modal de confirmation au clavier:
@@ -126,6 +136,8 @@ function createForm() {
     if (e.key === 'Escape') {
       modalValidation.style.display = 'none';
       bgValidation.style.display = 'none';
+      modalValidation.removeAttribute('aria-hidden', 'false');
+      modalValidation.setAttribute('aria-hidden', 'true');
     }
   });
 }
