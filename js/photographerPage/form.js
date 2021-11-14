@@ -14,7 +14,6 @@ function createForm() {
   const formDatas = document.querySelectorAll('.formData');
   const validationForm = document.querySelector('#validation');
   const modalValidation = document.querySelector('.modalValidation');
-  // const inputs = Array.from(document.querySelectorAll('.text-control'));
 
   btnContact.addEventListener('click', () => {
     modalForm.style.display = 'block';
@@ -37,12 +36,14 @@ function createForm() {
     }
     switch (e.key) {
       case 'ArrowDown':
-        // console.log(inputs);
-        // const i = inputs.findIndex((input) => input === document.activeElement);
-        // console.log(i);
+        if (document.activeElement === inputFirst) inputLast.focus();
+        else if (document.activeElement === inputLast) inputEmail.focus();
+        else if (document.activeElement === inputEmail) inputMessage.focus();
         break;
       case 'ArrowUp':
-        // remonter le focus
+        if (document.activeElement === inputMessage) inputEmail.focus();
+        else if (document.activeElement === inputEmail) inputLast.focus();
+        else if (document.activeElement === inputLast) inputFirst.focus();
         break;
       case 'Escape':
         modalForm.style.display = 'none';
