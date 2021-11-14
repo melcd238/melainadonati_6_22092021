@@ -92,6 +92,7 @@ ul{
     margin-top: 40px;
     margin-left: -80%;
     cursor: pointer;
+    font-weight: 400;
 }
 #btnContactModal:hover, #btnContactModal:focus{
     background: #D3573C;
@@ -138,6 +139,7 @@ ul{
     width: 166px;
     height: 69px;
     line-height: 23px;
+    font-weight: 400;
 }
 .btnPopularite button:hover , .btnPopularite button:focus {
     background: #D3573C;
@@ -193,6 +195,7 @@ ul{
     cursor: pointer;
     font-weight: bold;
     font-size: 18px;
+    font-weight: 400;
     width: 166px;
     height: 60px;
     line-height: 23px;
@@ -245,11 +248,13 @@ ul{
     color: #901C1C;
     font-size: 24px;
     line-height: 31px;
+    font-weight: 400;
 } 
 .titleLikes p{
     font-size: 24px;
     line-height: 31px;
     color: #901C1C;
+    font-weight: 400;
 } 
 .priceLikes{
     background: #DB8876;
