@@ -7,7 +7,7 @@ function totalLikesPhotographer(data) {
     const reducer = (accumulator, curr) => accumulator + curr;
     const totalLikes = likesArray.reduce(reducer);
     const totalLikesparagraphe = document.querySelector('.totalLikes');
-    totalLikesparagraphe.innerHTML = `<span class='totalCounterLikes'> ${totalLikes} </span> <img src="../images/totalLikes.svg" alt="">`;
+    totalLikesparagraphe.innerHTML = `<span class='totalCounterLikes'> ${totalLikes} </span> <img src="../images/totalLikes.svg" alt="coeur noir">`;
   });
 }
 
@@ -20,12 +20,12 @@ function likes() {
     let totalLikes = parseInt(totalLikesCounter.textContent, 10);
     if (like.classList.contains('selected')) {
       likeAdd++;
-      like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt=""></p>`;
+      like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt="coeur rouge"></p>`;
       totalLikes++;
       totalLikesCounter.textContent = `${totalLikes}`;
     } else {
       likeAdd--;
-      like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt=""></p>`;
+      like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt="coeur rouge"></p>`;
       totalLikes--;
       totalLikesCounter.textContent = `${totalLikes}`;
     }

@@ -79,18 +79,21 @@ fetch('../data/data.json')
           mediaList.displayMediaList(data);
         });
         likes();
+        LightBox.init();
       } else if (optionDate.classList.contains('selected')) {
         mediaByDate.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
+        LightBox.init();
       } else if (optionTitre.classList.contains('selected')) {
         mediaByTitre.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
+        LightBox.init();
       }
     });
     // lightBox

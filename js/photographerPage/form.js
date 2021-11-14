@@ -6,17 +6,6 @@ function createForm() {
   const bground = document.querySelector('.bground');
   const bgValidation = document.querySelector('.bgroundValidation');
   const crossClose = document.querySelector('.crossClose');
-  btnContact.addEventListener('click', () => {
-    modalForm.style.display = 'block';
-    bground.style.display = 'block';
-  });
-  crossClose.addEventListener('click', () => {
-    modalForm.style.display = 'none';
-    bground.style.display = 'none';
-  });
-  // validation du formulaire :
-  // eslint-disable-next-line no-unused-vars
-  let formIsValid = false;
   // Dom éléments pour la validation du formulaire
   const inputFirst = document.querySelector('#firstName');
   const inputLast = document.querySelector('#lastName');
@@ -25,11 +14,49 @@ function createForm() {
   const formDatas = document.querySelectorAll('.formData');
   const validationForm = document.querySelector('#validation');
   const modalValidation = document.querySelector('.modalValidation');
+  // const inputs = Array.from(document.querySelectorAll('.text-control'));
+
+  btnContact.addEventListener('click', () => {
+    modalForm.style.display = 'block';
+    bground.style.display = 'block';
+    inputFirst.focus();
+  });
+  crossClose.addEventListener('click', () => {
+    modalForm.style.display = 'none';
+    bground.style.display = 'none';
+  });
+
+  // Gestion du formulaire au clavier
+  modalForm.addEventListener('keydown', (e) => {
+    if (e.defaultPrevented) {
+      return;
+    }
+    switch (e.key) {
+      case 'ArrowDown':
+        // console.log(inputs);
+        // const i = inputs.findIndex((input) => input === document.activeElement);
+        // console.log(i);
+        break;
+      case 'ArrowUp':
+        // remonter le focus
+        break;
+      case 'Escape':
+        modalForm.style.display = 'none';
+        bground.style.display = 'none';
+        break;
+      default:
+        return;
+    }
+    e.preventDefault();
+  }, true);
+
+  // validation du formulaire :
+  // eslint-disable-next-line no-unused-vars
+  let formIsValid = false;
 
   function checkValidityInput() {
     const hasError = [];
     const regexFirstLast = /^([a-zA-Z-\s]){2,30}$/;
-    const regexMessage = /^([a-zA-Z-\s]){10,100}$/;
     const regexMail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
     // inputFirst validity:
@@ -57,7 +84,7 @@ function createForm() {
     }
 
     // Validation inputMessage:
-    if (!inputMessage.value || regexMessage.test(inputMessage.value) === false) {
+    if (!inputMessage.value || inputMessage.length > 10 || inputMessage.length < 100) {
       formDatas[3].dataset.errorVisible = 'true';
       hasError.push(true);
     } else {
@@ -83,6 +110,7 @@ function createForm() {
         email: inputEmail.value,
         message: inputMessage.value,
       };
+      validationForm.reset();
       // eslint-disable-next-line no-console
       console.log(formInput);
     }
@@ -92,6 +120,13 @@ function createForm() {
   btnCloseConfirm.addEventListener('click', () => {
     modalValidation.style.display = 'none';
     bgValidation.style.display = 'none';
+  });
+  // fermeture de la modal de confirmation au clavier:
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modalValidation.style.display = 'none';
+      bgValidation.style.display = 'none';
+    }
   });
 }
 

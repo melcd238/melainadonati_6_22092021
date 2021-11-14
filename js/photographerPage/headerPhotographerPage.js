@@ -7,6 +7,7 @@ function createHeaderPhotographerPage() {
   const logoImg = document.createElement('img');
   logoImg.setAttribute('src', '../images/logo.svg');
   logoImg.setAttribute('alt', 'Fisheye Home page');
+  logoImg.setAttribute('aria-label', 'logo');
   logo.appendChild(logoImg);
   HeaderPhotographer.appendChild(logo);
 }

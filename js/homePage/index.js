@@ -51,4 +51,8 @@ fetch('data/data.json')
         }
       });
     }
+    // ACCESSIBLITE
+    document.addEventListener('keydown', (KeyboardEvent) => {
+      console.log(KeyboardEvent.key);
+    });
   });

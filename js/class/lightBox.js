@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 export default class LightBox {
   static init() {
-    const links = Array.from(document.querySelectorAll('a[href$= ".png"],a[href$= ".jpg"], a[href$= ".jpeg"], a[href$= ".mp4"] '));
+    const links = Array.from(document.querySelectorAll('a[href$= ".jpg"], a[href$= ".mp4"] '));
     const gallery = links.map((link) => link.getAttribute('href'));
     console.log(gallery);
     links.forEach((link) => link.addEventListener('click', (e) => {
@@ -16,8 +16,10 @@ export default class LightBox {
     this.elementDom = this.createLightBox(url);
     this.imagesOrVideo = imagesOrVideo;
     this.loadImageOrVideo(url);
+    this.onKeyDown = this.onKeyDown.bind(this);
     const sectionMedia = document.querySelector('.media');
     sectionMedia.appendChild(this.elementDom);
+    document.addEventListener('keydown', this.onKeyDown);
   }
 
   loadImageOrVideo(url) {
@@ -35,7 +37,7 @@ export default class LightBox {
     container.appendChild(loader);
     // Mettre la condition si c'est une image : container.appendChild(image)
     // si c'est une video  container.appendChild(video);
-    if (url.match(/\.(jpeg|jpg|png)$/) != null) {
+    if (url.match(/\.(jpg)$/) != null) {
       image.onload = () => {
         container.removeChild(loader);
         container.appendChild(image);
@@ -68,12 +70,23 @@ export default class LightBox {
     }
   }
 
+  onKeyDown(e) {
+    if (e.key === 'Escape') {
+      this.close(e);
+    } else if (e.key === 'ArrowRight') {
+      this.lightBoxNext(e);
+    } else if (e.key === 'ArrowLeft') {
+      this.lightBoxPrev(e);
+    }
+  }
+
   close(e) {
     e.preventDefault();
     this.elementDom.classList.add('fadeOut');
     window.setTimeout(() => {
       this.elementDom.remove(this.elementDom);
     }, 500);
+    document.removeEventListener('keydown', this.onKeyDown);
   }
 
   lightBoxNext(e) {

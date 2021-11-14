@@ -23,6 +23,7 @@ export default class Header {
     const navBar = document.createElement('nav');
     navBar.classList.add('navBar');
     const ulNavBar = document.createElement('ul');
+    ulNavBar.setAttribute('aria-label', 'filtrer par tag');
     navBar.appendChild(ulNavBar);
     this.tagList.forEach((tagName) => {
       const li = document.createElement('li');

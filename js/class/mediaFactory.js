@@ -21,11 +21,11 @@ class Image extends Media {
     const mediaImageCard = document.createElement('div');
     mediaImageCard.setAttribute('class', 'mediaView');
     mediaImageCard.setAttribute('id', `${this.id}`);
-    mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "../images/${this.photographerId}/${this.image}">
-      <img  src="../images/${this.photographerId}/${this.image}" alt="${this.title}"/>
+    mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "../images/${this.photographerId}/${this.image}" tabindex="0" title="renvoit l'image dans la lightbox">
+      <img  src="../images/${this.photographerId}/${this.image}" alt="${this.title}, closeup view"/>
   </a>
   <div class="titleLikes">
-      <h3> ${this.title} </h3>
+      <h2> ${this.title} </h2>
       <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt="heart" aria-label="likes" role="button" tabindex="0"></p>
   </div> `;
 
@@ -43,10 +43,10 @@ class Video extends Media {
     const mediaVideoCard = document.createElement('div');
     mediaVideoCard.setAttribute('class', 'mediaView');
     mediaVideoCard.setAttribute('id', `${this.id}`);
-    mediaVideoCard.innerHTML = `<a  class="imageMedia" href= "../images/${this.photographerId}/${this.video}" >
+    mediaVideoCard.innerHTML = `<a  class="imageMedia" href= "../images/${this.photographerId}/${this.video}" tabindex="0"  title="renvoit la video dans la lightbox">
       <video src="../images/${this.photographerId}/${this.video}"  poster type="video/mp4"></video> </a>
     <div class="titleLikes">
-        <h3> ${this.title} </h3>
+        <h2> ${this.title} </h2>
         <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt="heart" aria-label="likes" role="button" tabindex="0"></p>
     </div> `;
     sectionMedia.appendChild(mediaVideoCard);

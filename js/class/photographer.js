@@ -20,14 +20,15 @@ export default class Photographer {
           <img src="../images/Portraits/${this.portrait}" alt="portrait du photographe ${this.name}">
           <h2>${this.name}</h2>
      </a>
-     <p class="location"><span>${this.city}</span>,<span>${this.country}</span></p>
+     <p class="location" tabindex="0"><span>${this.city}</span>,<span>${this.country}</span></p>
     
-     <p class="textDesciption" role="text"> ${this.tagline}</p>
-     <p class="price">  ${this.price}€/jour</p>`;
+     <p class="textDesciption" role="text" tabindex="0"> ${this.tagline}</p>
+     <p class="price" tabindex="0">  ${this.price}€/jour</p>`;
     const divHastag = document.createElement('div');
     divHastag.setAttribute('class', 'hastag');
     const ulHastag = document.createElement('ul');
     ulHastag.setAttribute('class', 'ulHashList');
+    ulHastag.setAttribute('aria-label', 'filtrer par tag');
     divHastag.appendChild(ulHastag);
     const tagsPhotographer = this.tags;
     console.log(tagsPhotographer);
@@ -46,15 +47,15 @@ export default class Photographer {
   displayOnePhotographer() {
     const presentationPhotographer = document.querySelector('.presentation');
     const priceDay = document.querySelector('.priceDay');
-    priceDay.innerHTML = `<span>${this.price} €/jour</span>`;
+    priceDay.innerHTML = `<span tabindex="0">${this.price} €/jour</span>`;
     presentationPhotographer.innerHTML = `<div class="information">
-    <h1>${this.name}</h1>
+    <h1 tabindex="0">${this.name}</h1>
     <div class="locationText">
-        <p> <span>${this.city},</span> <span>${this.country}</span></p>
-        <p class="text">${this.tagline}</p>
+        <p tabindex="0"> <span>${this.city},</span> <span>${this.country}</span></p>
+        <p class="text" role="text">${this.tagline}</p>
     </div>
     <div class="tags">
-    <ul class="ulTags">
+    <ul class="ulTags" aria-label="filtrer par tag">
     </ul>
     </div>
 </div>
@@ -62,7 +63,7 @@ export default class Photographer {
     <button id="btnContactModal">Contactez-moi</button>
 </div>
 <div class="portrait">
-    <img src="../images/Portraits/${this.portrait}">
+    <img src="../images/Portraits/${this.portrait}" alt="portrait de ${this.name}">
 </div>`;
     const ultags = document.querySelector('.ulTags');
     const tagsPhotographer = this.tags;

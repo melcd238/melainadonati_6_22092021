@@ -1,15 +1,15 @@
 function createListBox() {
   const containerDropDown = document.querySelector('.containerDropDown');
   containerDropDown.innerHTML = ` <p class="sortBy"> Trier par </p>
-  <div class="accordion-item close" role="listbox" tabindex="0" aria-activedescendant="listbox1-1">
+  <div class="accordion-item close" role="listbox" tabindex="0" aria-activedescendant="listbox1-1"  aria-label="Trier par filtre">
       <div class="btnPopularite selected" id="listbox1-1"  aria-selected="true" aria-label="Trier par popularité actuellement">
-          <button>Popularité <i class="fas fa-chevron-down"></i></button>
+          <button tabindex="0">Popularité <i class="fas fa-chevron-down"></i></button>
       </div>
-      <div class="accordion-item-contenu" id="listbox1-2" tabindex="0" role="option" aria-label="Trier par date" aria-selected="false">
-        <button>Date  <i class="fas fa-chevron-down"></i></button>
+      <div class="accordion-item-contenu" id="listbox1-2"  role="option" aria-label="Trier par date" aria-selected="false">
+        <button tabindex="0">Date  <i class="fas fa-chevron-down"></i></button>
       </div>
-      <div class="accordion-item-contenu" id="listbox1-3" tabindex="0" role="option"  aria-label="Trier par titre" aria-selected="false">
-        <button>Titre <i class="fas fa-chevron-down"></i></button>
+      <div class="accordion-item-contenu" id="listbox1-3" role="option"  aria-label="Trier par titre" aria-selected="false">
+        <button tabindex="0">Titre <i class="fas fa-chevron-down"></i></button>
       </div>
 </div>`;
 
