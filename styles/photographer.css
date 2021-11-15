@@ -167,7 +167,6 @@ ul{
 .open .accordion-item-contenu{
     border-radius: 5px;
     width: 100%;
-    margin: 0px 0px 10px 0px;
     display:block;
     border-top: 1px solid white;
     -webkit-transform: scaleY(1);
@@ -186,7 +185,9 @@ ul{
  }
  .open .accordion-item-contenu
  .fa-chevron-down{
-    visibility: hidden;
+   visibility: hidden;
+   margin-left: 50px;
+   
  }
  .open .accordion-item-contenu button{
     background: #911C1C;
@@ -199,7 +200,6 @@ ul{
     width: 166px;
     height: 60px;
     line-height: 23px;
-    padding-right: 70px;
  }
  .open .accordion-item-contenu button:focus, .open .accordion-item-contenu button:focus-within , .open .accordion-item-contenu button:hover{
     background: #D3573C;

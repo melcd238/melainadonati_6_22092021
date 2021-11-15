@@ -53,8 +53,10 @@ export default class LightBox {
         console.log(title);
         description.textContent = title;
         container.appendChild(description);
+        container.focus();
       };
       image.src = url;
+      image.focus();
     } else if (url.match(/\.(mp4)$/) != null) {
       container.removeChild(loader);
       container.appendChild(video);

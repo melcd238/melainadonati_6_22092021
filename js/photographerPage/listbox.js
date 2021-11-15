@@ -6,10 +6,10 @@ function createListBox() {
           <button class="btnpop" tabindex="0">Popularité <i class="fas fa-chevron-down"></i></button>
       </div>
       <div class="accordion-item-contenu" id="listbox1-2"  role="option" aria-label="Trier par date" aria-selected="false">
-        <button  class="btndate" tabindex="0">Date  <i class="fas fa-chevron-down"></i></button>
+        <button  class="btndate" tabindex="0">Date  <i class="fas fa-chevron-down date"></i></button>
       </div>
       <div class="accordion-item-contenu" id="listbox1-3" role="option"  aria-label="Trier par titre" aria-selected="false">
-        <button class="btntitre" tabindex="0">Titre <i class="fas fa-chevron-down"></i></button>
+        <button class="btntitre" tabindex="0">Titre <i class="fas fa-chevron-down titre"></i></button>
       </div>
 </div>`;
 
@@ -18,6 +18,8 @@ function createListBox() {
   const btnpop = document.querySelector('.btnpop');
   const btndate = document.querySelector('.btndate');
   const btntitre = document.querySelector('.btntitre');
+  const chevronDate = document.querySelector('.fa-chevron-down.date');
+  const chevronTitre = document.querySelector('.fa-chevron-down.titre');
   function toggleItem() {
     const itemClass = this.parentNode.className;
     if (itemClass === 'accordion-item close') {
@@ -66,9 +68,11 @@ function createListBox() {
         if (btnDate.classList.contains('active')) {
           btnPopularite.style.display = 'none';
           btnTitre.style.display = 'none';
+          chevronDate.style.visibility = 'visible';
         } else {
           btnPopularite.style.display = 'block';
           btnTitre.style.display = 'block';
+          chevronDate.style.visibility = 'hidden';
         }
       }
       if (btnText[0].innerText === 'Titre ') {
@@ -76,9 +80,11 @@ function createListBox() {
         if (btnTitre.classList.contains('active')) {
           btnPopularite.style.display = 'none';
           btnDate.style.display = 'none';
+          chevronTitre.style.visibility = 'visible';
         } else {
           btnPopularite.style.display = 'block';
           btnDate.style.display = 'block';
+          chevronTitre.style.visibility = 'hidden';
         }
       }
       selectedOption.classList.add('selected');

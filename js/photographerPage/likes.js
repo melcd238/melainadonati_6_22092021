@@ -13,9 +13,9 @@ function totalLikesPhotographer(data) {
 
 function likes() {
   const likesBtn = document.querySelectorAll('.likesBtn');
+  const totalLikesCounter = document.querySelector('.totalCounterLikes');
   likesBtn.forEach((like) => like.addEventListener('click', () => {
     like.classList.toggle('selected');
-    const totalLikesCounter = document.querySelector('.totalCounterLikes');
     let likeAdd = parseInt(like.textContent, 10);
     let totalLikes = parseInt(totalLikesCounter.textContent, 10);
     if (like.classList.contains('selected')) {
@@ -26,6 +26,24 @@ function likes() {
     } else {
       likeAdd--;
       like.innerHTML = ` <p class="likesBtn"> ${likeAdd} <img src="../images/likes.svg" alt="coeur rouge"></p>`;
+      totalLikes--;
+      totalLikesCounter.textContent = `${totalLikes}`;
+    }
+  }));
+  // ajouter ou supprimer un like avec le clavier:
+  likesBtn.forEach((like) => like.addEventListener('keydown', (e) => {
+    let likeAdd = parseInt(like.textContent, 10);
+    let totalLikes = parseInt(totalLikesCounter.textContent, 10);
+    if (e.key === 'ArrowRight') {
+      like.classList.add('selected');
+      likeAdd++;
+      like.innerHTML = `<p class="likesBtn"> ${likeAdd} <img class="imgLike" src="../images/likes.svg" alt="like la photo" aria-label="likes" role="button" tabindex="0"></p> `;
+      totalLikes++;
+      totalLikesCounter.textContent = `${totalLikes}`;
+    } else if (e.key === 'ArrowLeft') {
+      like.classList.remove('selected');
+      likeAdd--;
+      like.innerHTML = `<p class="likesBtn"> ${likeAdd} <img class="imgLike" src="../images/likes.svg" alt="like la photo" aria-label="likes" role="button" tabindex="0"></p>`;
       totalLikes--;
       totalLikesCounter.textContent = `${totalLikes}`;
     }
