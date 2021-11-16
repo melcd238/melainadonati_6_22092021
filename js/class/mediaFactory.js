@@ -23,7 +23,7 @@ class Image extends Media {
     mediaImageCard.setAttribute('class', 'mediaView');
     mediaImageCard.setAttribute('id', `${this.id}`);
     mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "../images/${this.photographerId}/${this.image}" tabindex="0" title="${this.altText}">
-      <img  src="../images/${this.photographerId}/${this.image}" alt="${this.altText}, closeup view"/>
+      <img  src="../images/${this.photographerId}/${this.image}" alt="${this.altText}, lightBox fermée"/>
   </a>
   <div class="titleLikes">
       <h2> ${this.title} </h2>
@@ -45,7 +45,7 @@ class Video extends Media {
     mediaVideoCard.setAttribute('class', 'mediaView');
     mediaVideoCard.setAttribute('id', `${this.id}`);
     mediaVideoCard.innerHTML = `<a  class="imageMedia" href= "../images/${this.photographerId}/${this.video}" tabindex="0"  title="${this.altText}">
-      <video src="../images/${this.photographerId}/${this.video}" role="button" poster type="video/mp4" title="${this.title}"></video> </a>
+      <video src="../images/${this.photographerId}/${this.video}" role="button" poster type="video/mp4" title="${this.title},lightBox fermée"></video> </a>
     <div class="titleLikes">
         <h2> ${this.title} </h2>
         <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt="like la photo" aria-label="likes" role="button" tabindex="0"></p>
