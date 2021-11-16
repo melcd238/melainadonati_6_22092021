@@ -222,15 +222,15 @@ ul{
     height: 20px;
 }
 .textDesciption{
-    font-size: 18px;
-    line-height: 13px;
-    height: 19px;
+    font-size: 14px;
+    /*line-height: 13px;*/
+    /*height: 19px;*/
 }
 .price{
-    font-size: 16px;
-    line-height: 12px;
+    font-size: 12px;
+    /*line-height: 12px;*/
     color: black;/*modifié pour wcag*/
-    height: 19px;
+   /* height: 19px;*/
 }
 .hastag{
     height: 30px;

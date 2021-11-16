@@ -249,12 +249,15 @@ ul{
     font-size: 24px;
     line-height: 31px;
     font-weight: 400;
+    width: 80%;
 } 
 .titleLikes p{
     font-size: 24px;
     line-height: 31px;
     color: #901C1C;
     font-weight: 400;
+    width: 20%;
+    padding-left: 9px;
 } 
 .priceLikes{
     background: #DB8876;
@@ -451,7 +454,7 @@ textarea{
      margin-top: -14px;
      z-index: 6000;
      opacity: .7;
-     text-indent: -3000px;
+     text-indent: -40000px;
      cursor: pointer;
      transition: .3s;
  }
@@ -467,7 +470,7 @@ textarea{
     margin-top: -14px;
     z-index: 6000;
     opacity: .7;
-    text-indent: -3000px;
+    text-indent: -40000px;
     cursor: pointer;
     transition: .3s;
  }
@@ -480,7 +483,7 @@ textarea{
     top:40px;
     right: 5%; 
     opacity: .7;
-    text-indent: -3000px;
+    text-indent: -40000px;
     cursor: pointer;
     transition: .3s;
  }
