@@ -16,8 +16,8 @@ export default class Photographer {
     const sectionPhotographers = document.querySelector('#indexPage');
     const card = document.createElement('div');
     card.setAttribute('class', 'cardPhotographer');
-    card.innerHTML = `   <a href="pages/photographer.html?id=${this.id}" class="linkPhotographer">
-          <img src="../images/Portraits/${this.portrait}" alt="portrait du photographe ${this.name}">
+    card.innerHTML = `   <a href="/pages/photographer.html?id=${this.id}" class="linkPhotographer">
+          <img src="/images/Portraits/${this.portrait}" alt="portrait du photographe ${this.name}">
           <h2>${this.name}</h2>
      </a>
      <p class="location" tabindex="0"><span>${this.city}</span>,<span>${this.country}</span></p>
@@ -34,7 +34,7 @@ export default class Photographer {
     console.log(tagsPhotographer);
     tagsPhotographer.forEach((tag) => {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="../../index.html?tag=${tag}" class="linkPhotographer"> #${tag}</a>`;
+      li.innerHTML = `<a href="/index.html?tag=${tag}" class="linkPhotographer"> #${tag}</a>`;
       li.setAttribute('class', 'filterTag');
       li.setAttribute('data-filter', `${tag}`);
       ulHastag.appendChild(li);
@@ -63,13 +63,13 @@ export default class Photographer {
     <button id="btnContactModal">Contactez-moi</button>
 </div>
 <div class="portrait">
-    <img src="../images/Portraits/${this.portrait}" alt="portrait de ${this.name}">
+    <img src="/images/Portraits/${this.portrait}" alt="portrait de ${this.name}">
 </div>`;
     const ultags = document.querySelector('.ulTags');
     const tagsPhotographer = this.tags;
     tagsPhotographer.forEach((tag) => {
       const li = document.createElement('li');
-      li.innerHTML = `<a href="../../index.html?tag=${tag}" class="linkPhotographer"> #${tag}</a>`;
+      li.innerHTML = `<a href="/index.html?tag=${tag}" class="linkPhotographer"> #${tag}</a>`;
       li.setAttribute('class', 'filterPhotographer');
       li.setAttribute('data-filter', `${tag}`);
       ultags.appendChild(li);

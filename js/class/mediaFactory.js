@@ -22,12 +22,12 @@ class Image extends Media {
     const mediaImageCard = document.createElement('div');
     mediaImageCard.setAttribute('class', 'mediaView');
     mediaImageCard.setAttribute('id', `${this.id}`);
-    mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "../images/${this.photographerId}/${this.image}" tabindex="0" title="${this.altText}">
-      <img  src="../images/${this.photographerId}/${this.image}" alt="${this.altText}, lightBox fermée"/>
+    mediaImageCard.innerHTML = ` <a  class="imageMedia" href = "/images/${this.photographerId}/${this.image}" tabindex="0" title="${this.altText}">
+      <img  src="/images/${this.photographerId}/${this.image}" alt="${this.altText}, lightBox fermée"/>
   </a>
   <div class="titleLikes">
       <h2> ${this.title} </h2>
-      <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt="like la photo" aria-label="likes" role="button" tabindex="0"></p>
+      <p class="likesBtn"> ${this.likes} <img class="imgLike" src="/images/likes.svg" alt="like la photo" aria-label="likes" role="button" tabindex="0"></p>
   </div> `;
 
     sectionMedia.appendChild(mediaImageCard);
@@ -44,11 +44,11 @@ class Video extends Media {
     const mediaVideoCard = document.createElement('div');
     mediaVideoCard.setAttribute('class', 'mediaView');
     mediaVideoCard.setAttribute('id', `${this.id}`);
-    mediaVideoCard.innerHTML = `<a  class="imageMedia" href= "../images/${this.photographerId}/${this.video}" tabindex="0"  title="${this.altText}">
-      <video src="../images/${this.photographerId}/${this.video}" role="button" poster type="video/mp4" title="${this.title},lightBox fermée"></video> </a>
+    mediaVideoCard.innerHTML = `<a  class="imageMedia" href= "/images/${this.photographerId}/${this.video}" tabindex="0"  title="${this.altText}">
+      <video src="/images/${this.photographerId}/${this.video}" role="button" poster type="video/mp4" title="${this.title},lightBox fermée"></video> </a>
     <div class="titleLikes">
         <h2> ${this.title} </h2>
-        <p class="likesBtn"> ${this.likes} <img class="imgLike" src="../images/likes.svg" alt="like la photo" aria-label="likes" role="button" tabindex="0"></p>
+        <p class="likesBtn"> ${this.likes} <img class="imgLike" src="/images/likes.svg" alt="like la photo" aria-label="likes" role="button" tabindex="0"></p>
     </div> `;
     sectionMedia.appendChild(mediaVideoCard);
   }
