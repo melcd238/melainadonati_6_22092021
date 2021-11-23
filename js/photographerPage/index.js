@@ -63,7 +63,6 @@ fetch('../data/data.json')
     });
     totalLikesPhotographer(medias);
     likes();
-
     // filtrage :
     document.addEventListener('selectedChanged', (e) => {
       console.log(e.target);
@@ -92,6 +91,45 @@ fetch('../data/data.json')
         likes();
       }
     });
+    // lightBox
+    function lightBox() {
+      const sectionLightBox = document.querySelector('.lightBox');
+      const lightBoxClose = document.querySelector('.lightBoxClose');
+      const lightBoxNext = document.querySelector('.lightBoxNext');
+      const lightBoxPrev = document.querySelector('.lightBoxPrev');
+      const links = Array.from(document.querySelectorAll('.imageMedia'));
+
+      links.forEach((link) => link.addEventListener('click', (e) => {
+        e.preventDefault();
+        lightBoxClose.focus();
+        sectionLightBox.style.display = 'block';
+        sectionLightBox.removeAttribute('aria-hidden', 'true');
+        sectionLightBox.setAttribute('aria-hidden', 'false');
+        const idmediaLink = link.dataset.id;
+        let mediaBox = mediasByLikes.find((data) => idmediaLink === data.id.toString());
+        const indexMedia = mediasByLikes.findIndex((data) => idmediaLink === data.id.toString());
+        mediaBox = MediaFactory.getMedia(mediaBox);
+        mediaBox.displayMediaLightBox();
+        return indexMedia;
+      }));
+
+      lightBoxClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        sectionLightBox.style.display = 'none';
+        sectionLightBox.removeAttribute('aria-hidden', 'false');
+        sectionLightBox.setAttribute('aria-hidden', 'true');
+      });
+
+      lightBoxNext.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+
+      lightBoxPrev.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('prev');
+      });
+    }
+    lightBox();
 
     // Form
     createForm();

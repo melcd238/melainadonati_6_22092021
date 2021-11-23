@@ -434,13 +434,37 @@ textarea{
      position: fixed;
      top: 0;
      left: 0;
-     width: 100%;
-     height: 100%;
+     right: 0;
+     bottom: 0;
      background-color: white;
      z-index: 5000;
      overflow: auto;
      display: none;
  }
+ .lightBoxContainer{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+.lightBoxContainer img {
+    width:100%;
+    height: 700px;
+    border-radius: 5px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    position:relative
+    
+}
+.lightBoxContainer video {
+   width: 100%;
+   height: 700px;
+   border-radius: 5px;
+   object-fit: cover;
+}
  .lightBox .fadeOut{
      opacity: 0;
  }
@@ -492,31 +516,8 @@ textarea{
  .lightBox button:hover{
      opacity: 1;
  }
- .lightBoxContainer img {
-     width: 850px;
-     height: 700px;
-     border-radius: 5px;
-     background-position: center; 
-     background-repeat: no-repeat; 
-     background-size: cover;
-     position:relative
-     
- }
- .lightBoxContainer video {
-    width: 850px;
-    height: 700px;
-    border-radius: 5px;
-    object-fit: cover;
- }
- .lightBoxContainer{
-     margin-left: 250px;
-     margin-right: 250px;
-     display: flex;
-     flex-direction: column;
-     /*align-items: center;*/
-     justify-content: center;
-     min-height: 100vh;
- }
+
+
  .titleImgLightBox{
     font-size: 24px;
     line-height: 31px;
