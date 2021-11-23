@@ -113,14 +113,12 @@ fetch('../data/data.json')
         if (index === mediasByLikes.length - 1) {
           index = -1;
         }
-        console.log(index);
       }
       // Fonction Prev
       function prev(index) {
         if (index === 0) {
           index = mediasByLikes.length;
         }
-        console.log(index);
       }
 
       links.forEach((link) => link.addEventListener('click', (e) => {
