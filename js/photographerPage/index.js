@@ -63,14 +63,16 @@ fetch('../data/data.json')
     });
     totalLikesPhotographer(medias);
     likes();
+
     // filtrage :
+    const optionPopularite = document.querySelector('#listbox1-1');
+    const optionDate = document.querySelector('#listbox1-2');
+    const optionTitre = document.querySelector('#listbox1-3');
+
     document.addEventListener('selectedChanged', (e) => {
       console.log(e.target);
       const sectionMedia = document.querySelector('.media');
       sectionMedia.innerHTML = '';
-      const optionPopularite = document.querySelector('#listbox1-1');
-      const optionDate = document.querySelector('#listbox1-2');
-      const optionTitre = document.querySelector('#listbox1-3');
       if (optionPopularite.classList.contains('selected')) {
         mediasByLikes.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
@@ -109,16 +111,26 @@ fetch('../data/data.json')
       }
 
       // Fonction Next
-      function next(index) {
-        if (index === mediasByLikes.length - 1) {
-          index = -1;
+      function next() {
+        if (indexMedia === mediasByLikes.length - 1) {
+          indexMedia = 0;
+        } else {
+          indexMedia++;
         }
+        let mediaBox = mediasByLikes[indexMedia];
+        mediaBox = MediaFactory.getMedia(mediaBox);
+        mediaBox.displayMediaLightBox();
       }
       // Fonction Prev
-      function prev(index) {
-        if (index === 0) {
-          index = mediasByLikes.length;
+      function prev() {
+        if (indexMedia === 0) {
+          indexMedia = mediasByLikes.length - 1;
+        } else {
+          indexMedia--;
         }
+        let mediaBox = mediasByLikes[indexMedia];
+        mediaBox = MediaFactory.getMedia(mediaBox);
+        mediaBox.displayMediaLightBox();
       }
 
       links.forEach((link) => link.addEventListener('click', (e) => {
@@ -146,10 +158,10 @@ fetch('../data/data.json')
           closeLightBox();
         } else if (e.key === 'ArrowRight') {
           e.preventDefault();
-          next(indexMedia);
+          next();
         } else if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          prev(indexMedia);
+          prev();
         } else if (e.key === 'Tab') {
           e.preventDefault();
           lightBoxClose.focus();
@@ -163,12 +175,12 @@ fetch('../data/data.json')
 
       lightBoxNext.addEventListener('click', (e) => {
         e.preventDefault();
-        next(indexMedia);
+        next();
       });
 
       lightBoxPrev.addEventListener('click', (e) => {
         e.preventDefault();
-        prev(indexMedia);
+        prev();
       });
       document.addEventListener('keydown', keyNavigation);
     }
