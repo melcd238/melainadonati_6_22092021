@@ -99,12 +99,16 @@ fetch('../data/data.json')
       const lightBoxPrev = document.querySelector('.lightBoxPrev');
       const links = Array.from(document.querySelectorAll('.imageMedia'));
 
-      links.forEach((link) => link.addEventListener('click', (e) => {
-        e.preventDefault();
-        lightBoxClose.focus();
+      // Fonction pour ouvrir la lightBox
+      function openLightBox() {
         sectionLightBox.style.display = 'block';
         sectionLightBox.removeAttribute('aria-hidden', 'true');
         sectionLightBox.setAttribute('aria-hidden', 'false');
+      }
+
+      links.forEach((link) => link.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightBox();
         const idmediaLink = link.dataset.id;
         let mediaBox = mediasByLikes.find((data) => idmediaLink === data.id.toString());
         const indexMedia = mediasByLikes.findIndex((data) => idmediaLink === data.id.toString());
@@ -113,22 +117,57 @@ fetch('../data/data.json')
         return indexMedia;
       }));
 
-      lightBoxClose.addEventListener('click', (e) => {
-        e.preventDefault();
+      // Fonction pour fermer la lightBox
+      function closeLightBox() {
         sectionLightBox.style.display = 'none';
         sectionLightBox.removeAttribute('aria-hidden', 'false');
         sectionLightBox.setAttribute('aria-hidden', 'true');
+      }
+
+      // Fonction Next
+      function next() {
+        console.log('next');
+      }
+
+      // Fonction Prev
+      function prev() {
+        console.log('prev');
+      }
+
+      // Function navigationClavier
+      function keyNavigation(e) {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeLightBox();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          next();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prev();
+        } else if (e.key === 'Tab') {
+          e.preventDefault();
+          lightBoxClose.focus();
+        }
+      }
+      // Evenement sur la lightBox
+      lightBoxClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeLightBox();
       });
 
       lightBoxNext.addEventListener('click', (e) => {
         e.preventDefault();
+        next();
       });
 
       lightBoxPrev.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log('prev');
+        prev();
       });
+      document.addEventListener('keydown', keyNavigation);
     }
+
     lightBox();
 
     // Form
