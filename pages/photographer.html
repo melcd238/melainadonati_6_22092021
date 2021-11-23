@@ -13,14 +13,23 @@
     <title>photographer</title>
 </head>
 <body>
-    <header class="headerPhotographer" role="banner"></header>
-    <main class="mainPhotographer">
+    <header class="headerPhotographer" role="banner" aria-hidden="false"></header>
+    <main class="mainPhotographer" aria-hidden="false">
         <section class="presentation" aria-label="presentation du photographe"></section>
         
         <div class="containerDropDown"></div>
         <section class="media" aria-label="gallerie du photographe"></section>
 
       <!-- lightbox -->
+      <section class="lightBox"aria-hidden="true" >
+        <button class="lightBoxClose" title="fermer la lightBox">Fermer</button>
+        <button class="lightBoxNext"  title="image suivante">Suivant</button>
+        <button class="lightBoxPrev"  title="image précédente">Précédent</button>
+        <div class="lightBoxContainer">
+           <img src="/images/243/Travel_HillsideColor.jpg" alt="">
+           <h1 class="titleImgLightBox">Titre de la photo</h1>
+        </div>
+      </section>
 
       <!-- Form -->
 
@@ -29,7 +38,7 @@
         <div class="modalForm" role="dialog" aria-hidden="true" aria-label="contactez-moi formulaire">
             <header class="contactMe" aria-label="En tête du formulaire de contact">
                 <h3>Contactez-moi </br> <span class="nameTitle"></span> </h3>
-                <img src="../images/crossClose.svg" alt="ferme le formulaire"  role="button" class="crossClose" tabindex="0">
+                <img src="/images/crossClose.svg" alt="ferme le formulaire"  role="button" class="crossClose" tabindex="0">
             </header>
             <form name="contactFormulaire" id="validation">
                 <div class="formData" data-error-visible="false" data-error="Veuillez entrer entre 2 et 30 caractères pour le champ Prénom">
@@ -56,7 +65,7 @@
 
     <div class="bgroundValidation">
         <div class="modalValidation" role="dialog" aria-hidden="true" aria-label="confirmation du message envoyé" tabindex="0">
-            <img src="../images/crossClose.svg" alt="ferme la modal de validation" role="button" class="crossCloseValidation">
+            <img src="/images/crossClose.svg" alt="ferme la modal de validation" role="button" class="crossCloseValidation">
             <p>Merci d'avoir pris contact avec <span class="nameTitle"></span> <br>
                Surveillez votre boîte mail! Une réponse devrait vous parvenir sous 24H. <br>
                Merci d'avoir choisi Fisheye pour trouver le photographe dont vous avez besoin! 

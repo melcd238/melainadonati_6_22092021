@@ -439,6 +439,7 @@ textarea{
      background-color: white;
      z-index: 5000;
      overflow: auto;
+     display: none;
  }
  .lightBox .fadeOut{
      opacity: 0;
@@ -480,9 +481,10 @@ textarea{
     width: 48px;
     height: 30px;
     position: fixed;
-    top:40px;
-    right: 5%; 
+    top:30px;
+    right: 2%; 
     opacity: .7;
+    z-index: 6000;
     text-indent: -40000px;
     cursor: pointer;
     transition: .3s;
@@ -511,7 +513,7 @@ textarea{
      margin-right: 250px;
      display: flex;
      flex-direction: column;
-     align-items: center;
+     /*align-items: center;*/
      justify-content: center;
      min-height: 100vh;
  }

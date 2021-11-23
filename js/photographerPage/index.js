@@ -9,7 +9,6 @@
 /* eslint-disable no-console */
 import Photographer from '../class/photographer.js';
 import MediaFactory from '../class/mediaFactory.js';
-import LightBox from '../class/lightBox.js';
 import { createListBox } from './listbox.js';
 import { totalLikesPhotographer, likes } from './likes.js';
 import { createHeaderPhotographerPage } from './headerPhotographerPage.js';
@@ -79,25 +78,21 @@ fetch('../data/data.json')
           mediaList.displayMediaList(data);
         });
         likes();
-        LightBox.init();
       } else if (optionDate.classList.contains('selected')) {
         mediaByDate.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
-        LightBox.init();
       } else if (optionTitre.classList.contains('selected')) {
         mediaByTitre.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
-        LightBox.init();
       }
     });
-    // lightBox
-    LightBox.init();
+
     // Form
     createForm();
   });

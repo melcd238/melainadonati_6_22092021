@@ -14,6 +14,8 @@ function createForm() {
   const formDatas = document.querySelectorAll('.formData');
   const validationForm = document.querySelector('#validation');
   const modalValidation = document.querySelector('.modalValidation');
+  const lastFocusableElement = document.querySelector('.btnSubmit');
+  const btnCloseConfirm = document.querySelector('.crossCloseValidation');
 
   btnContact.addEventListener('click', () => {
     modalForm.style.display = 'block';
@@ -50,6 +52,13 @@ function createForm() {
         modalForm.removeAttribute('aria-hidden', 'false');
         modalForm.setAttribute('aria-hidden', 'true');
         bground.style.display = 'none';
+        break;
+      case 'Tab':
+        if (document.activeElement === inputFirst) inputLast.focus();
+        else if (document.activeElement === inputLast) inputEmail.focus();
+        else if (document.activeElement === inputEmail) inputMessage.focus();
+        else if (document.activeElement === inputMessage)lastFocusableElement.focus();
+        else if (document.activeElement === lastFocusableElement) inputFirst.focus();
         break;
       default:
         return;
@@ -113,6 +122,7 @@ function createForm() {
       modalValidation.removeAttribute('aria-hidden', 'true');
       modalValidation.setAttribute('aria-hidden', 'false');
       bgValidation.style.display = 'block';
+      bgValidation.focus();
       const formInput = {
         firstName: inputFirst.value,
         lastName: inputLast.value,
@@ -125,7 +135,6 @@ function createForm() {
     }
   });
   // fermeture de la modal de confirmation:
-  const btnCloseConfirm = document.querySelector('.crossCloseValidation');
   btnCloseConfirm.addEventListener('click', () => {
     modalValidation.style.display = 'none';
     modalValidation.removeAttribute('aria-hidden', 'false');
@@ -133,12 +142,13 @@ function createForm() {
     bgValidation.style.display = 'none';
   });
   // fermeture de la modal de confirmation au clavier:
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+  modalValidation.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Enter' || e.key === 'Tab') {
       modalValidation.style.display = 'none';
       bgValidation.style.display = 'none';
       modalValidation.removeAttribute('aria-hidden', 'false');
       modalValidation.setAttribute('aria-hidden', 'true');
+      btnContact.focus();
     }
   });
 }
