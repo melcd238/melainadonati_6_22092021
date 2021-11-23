@@ -8,6 +8,7 @@ body{
     font-family: 'DM Sans', sans-serif;
     position: relative;
     width: 80%;
+    max-width: 1440px;
     margin: auto;
 }
 a{

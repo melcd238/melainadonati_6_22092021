@@ -65,32 +65,40 @@ fetch('../data/data.json')
     likes();
 
     // filtrage :
-    const optionPopularite = document.querySelector('#listbox1-1');
-    const optionDate = document.querySelector('#listbox1-2');
-    const optionTitre = document.querySelector('#listbox1-3');
 
     document.addEventListener('selectedChanged', (e) => {
       console.log(e.target);
+      const optionPopularite = document.querySelector('#listbox1-1');
+      const optionDate = document.querySelector('#listbox1-2');
+      const optionTitre = document.querySelector('#listbox1-3');
       const sectionMedia = document.querySelector('.media');
       sectionMedia.innerHTML = '';
+      const lightBoxContainer = document.querySelector('.lightBoxContainer');
+      lightBoxContainer.innerHTML = '';
       if (optionPopularite.classList.contains('selected')) {
         mediasByLikes.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
+        // eslint-disable-next-line no-use-before-define
+        lightBox();
       } else if (optionDate.classList.contains('selected')) {
         mediaByDate.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
+        // eslint-disable-next-line no-use-before-define
+        lightBox();
       } else if (optionTitre.classList.contains('selected')) {
         mediaByTitre.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
+        // eslint-disable-next-line no-use-before-define
+        lightBox();
       }
     });
 
@@ -141,6 +149,7 @@ fetch('../data/data.json')
         indexMedia = mediasByLikes.findIndex((data) => idmediaLink === data.id.toString());
         mediaBox = MediaFactory.getMedia(mediaBox);
         mediaBox.displayMediaLightBox();
+
         return indexMedia;
       }));
 

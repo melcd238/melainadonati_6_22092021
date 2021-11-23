@@ -9,6 +9,7 @@ body{
     font-family: 'DM Sans', sans-serif;
     position: relative;
     width: 90%;
+    max-width: 1440px;
     margin: auto;
 }
 a{
@@ -249,15 +250,12 @@ ul{
     font-size: 24px;
     line-height: 31px;
     font-weight: 400;
-    width: 80%;
+    width: 70%;
 } 
 .titleLikes p{
     font-size: 24px;
-    line-height: 31px;
     color: #901C1C;
     font-weight: 400;
-    width: 20%;
-    padding-left: 9px;
 } 
 .priceLikes{
     background: #DB8876;
