@@ -91,13 +91,15 @@ fetch('../data/data.json')
         likes();
       }
     });
+
     // lightBox
     function lightBox() {
       const sectionLightBox = document.querySelector('.lightBox');
       const lightBoxClose = document.querySelector('.lightBoxClose');
       const lightBoxNext = document.querySelector('.lightBoxNext');
       const lightBoxPrev = document.querySelector('.lightBoxPrev');
-      const links = Array.from(document.querySelectorAll('.imageMedia'));
+      const links = document.querySelectorAll('.imageMedia');
+      let indexMedia = '';
 
       // Fonction pour ouvrir la lightBox
       function openLightBox() {
@@ -106,12 +108,27 @@ fetch('../data/data.json')
         sectionLightBox.setAttribute('aria-hidden', 'false');
       }
 
+      // Fonction Next
+      function next(index) {
+        if (index === mediasByLikes.length - 1) {
+          index = -1;
+        }
+        console.log(index);
+      }
+      // Fonction Prev
+      function prev(index) {
+        if (index === 0) {
+          index = mediasByLikes.length;
+        }
+        console.log(index);
+      }
+
       links.forEach((link) => link.addEventListener('click', (e) => {
         e.preventDefault();
         openLightBox();
         const idmediaLink = link.dataset.id;
         let mediaBox = mediasByLikes.find((data) => idmediaLink === data.id.toString());
-        const indexMedia = mediasByLikes.findIndex((data) => idmediaLink === data.id.toString());
+        indexMedia = mediasByLikes.findIndex((data) => idmediaLink === data.id.toString());
         mediaBox = MediaFactory.getMedia(mediaBox);
         mediaBox.displayMediaLightBox();
         return indexMedia;
@@ -124,16 +141,6 @@ fetch('../data/data.json')
         sectionLightBox.setAttribute('aria-hidden', 'true');
       }
 
-      // Fonction Next
-      function next() {
-        console.log('next');
-      }
-
-      // Fonction Prev
-      function prev() {
-        console.log('prev');
-      }
-
       // Function navigationClavier
       function keyNavigation(e) {
         if (e.key === 'Escape') {
@@ -141,10 +148,10 @@ fetch('../data/data.json')
           closeLightBox();
         } else if (e.key === 'ArrowRight') {
           e.preventDefault();
-          next();
+          next(indexMedia);
         } else if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          prev();
+          prev(indexMedia);
         } else if (e.key === 'Tab') {
           e.preventDefault();
           lightBoxClose.focus();
@@ -158,12 +165,12 @@ fetch('../data/data.json')
 
       lightBoxNext.addEventListener('click', (e) => {
         e.preventDefault();
-        next();
+        next(indexMedia);
       });
 
       lightBoxPrev.addEventListener('click', (e) => {
         e.preventDefault();
-        prev();
+        prev(indexMedia);
       });
       document.addEventListener('keydown', keyNavigation);
     }
