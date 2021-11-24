@@ -437,7 +437,7 @@ textarea{
      background-color: white;
      z-index: 5000;
      overflow: auto;
-     display: none;
+    /* display: none;*/
  }
  .lightBoxContainer{
     margin: auto;

@@ -9,6 +9,7 @@
 /* eslint-disable no-console */
 import Photographer from '../class/photographer.js';
 import MediaFactory from '../class/mediaFactory.js';
+import LightBox from '../class/lightBox.js';
 import { createListBox } from './listbox.js';
 import { totalLikesPhotographer, likes } from './likes.js';
 import { createHeaderPhotographerPage } from './headerPhotographerPage.js';
@@ -65,137 +66,38 @@ fetch('../data/data.json')
     likes();
 
     // filtrage :
-
     document.addEventListener('selectedChanged', (e) => {
       console.log(e.target);
+      const sectionMedia = document.querySelector('.media');
+      sectionMedia.innerHTML = '';
       const optionPopularite = document.querySelector('#listbox1-1');
       const optionDate = document.querySelector('#listbox1-2');
       const optionTitre = document.querySelector('#listbox1-3');
-      const sectionMedia = document.querySelector('.media');
-      sectionMedia.innerHTML = '';
-      const lightBoxContainer = document.querySelector('.lightBoxContainer');
-      lightBoxContainer.innerHTML = '';
       if (optionPopularite.classList.contains('selected')) {
         mediasByLikes.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
-        // eslint-disable-next-line no-use-before-define
-        lightBox();
+        LightBox.init();
       } else if (optionDate.classList.contains('selected')) {
         mediaByDate.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
-        // eslint-disable-next-line no-use-before-define
-        lightBox();
+        LightBox.init();
       } else if (optionTitre.classList.contains('selected')) {
         mediaByTitre.forEach((media) => {
           const mediaList = MediaFactory.getMedia(media);
           mediaList.displayMediaList(data);
         });
         likes();
-        // eslint-disable-next-line no-use-before-define
-        lightBox();
+        LightBox.init();
       }
     });
-
     // lightBox
-    function lightBox() {
-      const sectionLightBox = document.querySelector('.lightBox');
-      const lightBoxClose = document.querySelector('.lightBoxClose');
-      const lightBoxNext = document.querySelector('.lightBoxNext');
-      const lightBoxPrev = document.querySelector('.lightBoxPrev');
-      const links = document.querySelectorAll('.imageMedia');
-      let indexMedia = '';
-
-      // Fonction pour ouvrir la lightBox
-      function openLightBox() {
-        sectionLightBox.style.display = 'block';
-        sectionLightBox.removeAttribute('aria-hidden', 'true');
-        sectionLightBox.setAttribute('aria-hidden', 'false');
-      }
-
-      // Fonction Next
-      function next() {
-        if (indexMedia === mediasByLikes.length - 1) {
-          indexMedia = 0;
-        } else {
-          indexMedia++;
-        }
-        let mediaBox = mediasByLikes[indexMedia];
-        mediaBox = MediaFactory.getMedia(mediaBox);
-        mediaBox.displayMediaLightBox();
-      }
-      // Fonction Prev
-      function prev() {
-        if (indexMedia === 0) {
-          indexMedia = mediasByLikes.length - 1;
-        } else {
-          indexMedia--;
-        }
-        let mediaBox = mediasByLikes[indexMedia];
-        mediaBox = MediaFactory.getMedia(mediaBox);
-        mediaBox.displayMediaLightBox();
-      }
-
-      links.forEach((link) => link.addEventListener('click', (e) => {
-        e.preventDefault();
-        openLightBox();
-        const idmediaLink = link.dataset.id;
-        let mediaBox = mediasByLikes.find((data) => idmediaLink === data.id.toString());
-        indexMedia = mediasByLikes.findIndex((data) => idmediaLink === data.id.toString());
-        mediaBox = MediaFactory.getMedia(mediaBox);
-        mediaBox.displayMediaLightBox();
-
-        return indexMedia;
-      }));
-
-      // Fonction pour fermer la lightBox
-      function closeLightBox() {
-        sectionLightBox.style.display = 'none';
-        sectionLightBox.removeAttribute('aria-hidden', 'false');
-        sectionLightBox.setAttribute('aria-hidden', 'true');
-      }
-
-      // Function navigationClavier
-      function keyNavigation(e) {
-        if (e.key === 'Escape') {
-          e.preventDefault();
-          closeLightBox();
-        } else if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          next();
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          prev();
-        } else if (e.key === 'Tab') {
-          e.preventDefault();
-          lightBoxClose.focus();
-        }
-      }
-      // Evenement sur la lightBox
-      lightBoxClose.addEventListener('click', (e) => {
-        e.preventDefault();
-        closeLightBox();
-      });
-
-      lightBoxNext.addEventListener('click', (e) => {
-        e.preventDefault();
-        next();
-      });
-
-      lightBoxPrev.addEventListener('click', (e) => {
-        e.preventDefault();
-        prev();
-      });
-      document.addEventListener('keydown', keyNavigation);
-    }
-
-    lightBox();
-
+    LightBox.init();
     // Form
     createForm();
   });

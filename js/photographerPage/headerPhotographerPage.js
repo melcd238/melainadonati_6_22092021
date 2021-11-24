@@ -3,6 +3,7 @@ function createHeaderPhotographerPage() {
   const logo = document.createElement('a');
   logo.setAttribute('href', '../index.html');
   logo.setAttribute('aria-label', 'retour à la page accueil');
+  logo.setAttribute('tabindex', '0');
   logo.classList.add('logoLinkPhotographer');
   const logoImg = document.createElement('img');
   logoImg.setAttribute('src', '../images/logo.svg');
