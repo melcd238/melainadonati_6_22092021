@@ -454,7 +454,7 @@ textarea{
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
-    position:relative
+    position:relative;
     
 }
 .lightBoxContainer video {
@@ -525,7 +525,8 @@ textarea{
  .lightBoxLoader{
      width: 135px;
      height: 135px;
-     background: url(/images/loader.svg) center center no-repeat;
+     background: url(/images/loader.svg);
+     margin: auto;
  }
 
 

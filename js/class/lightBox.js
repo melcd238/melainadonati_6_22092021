@@ -25,10 +25,12 @@ export default class LightBox {
   loadImageOrVideo(url) {
     this.url = null;
     const image = document.createElement('img');
+    image.setAttribute('tabindex', '0');
     const video = document.createElement('video');
     video.setAttribute('type', 'video/mp4');
     video.setAttribute('controls', '');
     video.setAttribute('autoplay', '');
+    video.setAttribute('tabindex', '0');
     const description = document.createElement('h3');
     description.setAttribute('class', 'titleImgLightBox');
     const container = this.elementDom.querySelector('.lightBoxContainer');
@@ -54,10 +56,9 @@ export default class LightBox {
         console.log(title);
         description.textContent = title;
         container.appendChild(description);
-        container.focus();
+        image.setAttribute('alt', `${title}`);
       };
       image.src = url;
-      image.focus();
     } else if (url.match(/\.(mp4)$/) != null) {
       container.removeChild(loader);
       container.appendChild(video);
@@ -70,6 +71,7 @@ export default class LightBox {
         title += `${word} `;
       });
       console.log(title);
+      image.setAttribute('title', `${title}`);
       description.textContent = title;
       container.appendChild(description);
     }
