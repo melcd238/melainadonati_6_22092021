@@ -7,6 +7,7 @@ export default class LightBox {
     console.log(gallery);
     links.forEach((link) => link.addEventListener('click', (e) => {
       e.preventDefault();
+
       // eslint-disable-next-line no-new
       new LightBox(e.currentTarget.getAttribute('href'), gallery);
     }));
@@ -31,7 +32,7 @@ export default class LightBox {
     video.setAttribute('controls', '');
     video.setAttribute('autoplay', '');
     video.setAttribute('tabindex', '0');
-    const description = document.createElement('h3');
+    const description = document.createElement('h1');
     description.setAttribute('class', 'titleImgLightBox');
     const container = this.elementDom.querySelector('.lightBoxContainer');
     this.elementDom.removeAttribute('aria-hidden', 'true');
