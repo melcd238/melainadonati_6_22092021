@@ -43,11 +43,6 @@ ul{
     text-align: center;
 } 
 .navBar li{
-    border:0.5px solid #C4C4C4;
-    box-sizing: border-box;
-    border-radius: 11px;
-    padding: 2px;
-    margin-right: 4px;
     cursor: pointer;
 }
 .navBar a{
@@ -55,16 +50,21 @@ ul{
     font-weight: bolder;
     text-transform: capitalize;
     color:#901C1C;
+    border:0.5px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 11px;
+    padding: 2px;
+    margin-right: 4px;
 }
- .navBar a:hover{
+ .navBar a:hover, .navBar a:focus{
     color:#E5E5E5;
+    background:#901C1C ;
 }
 .active a{
     color:#E5E5E5;
+    background:#901C1C ;
 }
-.navBar li:focus, .navBar li:hover, .active{
-   background:#901C1C ;
-}
+
 
 .btnGoToMain{
     background: #901C1C;
@@ -241,26 +241,25 @@ ul{
  text-align: center;
 }
 .hastag li{
-    border:0.5px solid #C4C4C4;
-    box-sizing: border-box;
-    border-radius: 11px;
-    padding: 2px;
-    margin-right: 3px;
     cursor: pointer;
 }
 .hastag a{
     color:#901C1C;
     font-size: 12px;
-    font-weight: bolder;  
+    font-weight: bolder; 
+    border:0.5px solid #C4C4C4;
+    border-radius: 11px; 
+    padding: 2px;
+    margin-right: 3px;
+    box-sizing: border-box;
 }
-.hastag li:hover, .hastag li:focus{
-    background:#901C1C ;
-}
-.hastag a:hover{
+.hastag a:hover, .hastag a:focus{
     color:white;
+    background:#901C1C ;
 }
 .active a{
     color:white;
+    background:#901C1C ;
 }
 
 /*@media screen and (max-width:1120px){
