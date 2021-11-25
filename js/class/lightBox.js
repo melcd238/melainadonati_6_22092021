@@ -17,8 +17,8 @@ export default class LightBox {
     this.imagesOrVideo = imagesOrVideo;
     this.loadImageOrVideo(url);
     this.onKeyDown = this.onKeyDown.bind(this);
-    const sectionMedia = document.querySelector('.media');
-    sectionMedia.appendChild(this.elementDom);
+    const divLightBox = document.querySelector('.lightBoxDiv');
+    divLightBox.appendChild(this.elementDom);
     document.addEventListener('keydown', this.onKeyDown);
   }
 
@@ -28,6 +28,7 @@ export default class LightBox {
     const video = document.createElement('video');
     video.setAttribute('type', 'video/mp4');
     video.setAttribute('controls', '');
+    video.setAttribute('autoplay', '');
     const description = document.createElement('h3');
     description.setAttribute('class', 'titleImgLightBox');
     const container = this.elementDom.querySelector('.lightBoxContainer');
@@ -116,7 +117,7 @@ export default class LightBox {
 
   // eslint-disable-next-line class-methods-use-this
   createLightBox() {
-    const sectionLightBox = document.createElement('section');
+    const sectionLightBox = document.createElement('div');
     sectionLightBox.classList.add('lightBox');
     sectionLightBox.setAttribute('aria-hidden', 'true');
     sectionLightBox.innerHTML = `<button class="lightBoxClose" title="fermer la lightBox">Fermer</button>
