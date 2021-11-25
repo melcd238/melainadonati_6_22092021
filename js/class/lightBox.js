@@ -72,7 +72,7 @@ export default class LightBox {
         title += `${word} `;
       });
       console.log(title);
-      image.setAttribute('title', `${title}`);
+      video.setAttribute('title', `${title}`);
       description.textContent = title;
       container.appendChild(description);
     }
